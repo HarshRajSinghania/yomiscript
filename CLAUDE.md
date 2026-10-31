@@ -54,7 +54,8 @@ copies in sync" comment. Examples already in the repo:
 - The parser, the rule prosody and the YomiScript instructions for LLMs (`YOMISCRIPT_INSTRUCTIONS`) live in
   `packages/core`; the demo, the eval scripts, the CLI, the MCP server and the plugin all import them.
 - Kokoro's vocabulary lives in `packages/kokoro/src/vocab.ts`; `VOWELS` in core's `yomiscript.ts`;
-  `f0_override.py` is the one Python copy of the F0 rendering (for the Python checks only).
+  `f0_override.py` is the one Python copy of the F0 rendering (for the Python checks only); it does not copy the
+  Japanese rendering of D28 (`packages/kokoro/src/render_ja.ts`).
 - `demo/ys_web/node.mjs` is the eval scripts' entry to the Kokoro package with onnxruntime-web;
   `yomite/kokoro_yomite.mjs` is what the Kokoro Yomites share; the CLI's `runtime.ts` is what the CLI and MCP share.
 - Demo data (`presets.json`) exists only under `demo/ys_web/web/`.

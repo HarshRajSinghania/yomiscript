@@ -9,7 +9,7 @@ import { plan } from "@yomiscript/kokoro";
 const read = (p) => JSON.parse(fs.readFileSync(new URL(p, import.meta.url)));
 const ORIGINAL = read("./fixtures/kokoro_original.json");
 const PRESETS = read("../demo/ys_web/web/presets.json");
-const REALIZED = read("./fixtures/presets_realized.json"); // the rule Yomite's output, recorded before the 2026-10-29 refactor
+const REALIZED = read("./fixtures/presets_realized.json"); // the rule Yomite's output, recorded before the 2026-10-29 refactor (Tokyo: D28)
 
 describe("YomiScript -> Kokoro input, as the original Kokoro gets it", () => {
   it.each(ORIGINAL.map((c) => [c.name, c]))("%s", (_, c) => {

@@ -70,9 +70,9 @@ describe("needsAccent", () => {
 });
 
 describe("accentYomite", () => {
-  it("writes the rules' values for the marked phrases at three-quarter strength (ACCENT_SCALE)", () => {
+  it("writes the values for the marked phrases (ACCENT_SCALE)", () => {
     expect(bare(accentYomite(fake)(kyou))).toBe(
-      "ja /kʲo<f0:1.88>ꜜː<f0:-2.1> wa<f0:-2.1> | ha<f0:-1.5>ꜛɾe<f0:1.88>ꜜte<f0:-2.1> | i<f0:-1.5>ꜛma<f0:1.88>ꜜsɯ<f0:-2.1> ↘/",
+      "ja /kʲo<f0:4.93,5.74,6.24>ꜜː<f0:6.1,5.36,4.05> wa<f0:1.69,0,-1.29> | ha<f0:-0.13,-0.13,-0.07>ꜛɾe<f0:2.98,3.5,3.84>ꜜte<f0:2.98,1.53,0.21> | i<f0:-2.17,-2.3,-2.3>ꜛma<f0:-1.86,-1.61,-1.35>ꜜsɯ<f0:-1.51,-1.94,-1.97> ↘/",
     );
   });
   it("leaves a YomiScript it does not mark as it is", () => {
@@ -96,7 +96,7 @@ describe("withAccent", () => {
     await w.speak(kyou);
     await w.speak(kyou);
     expect(load).toHaveBeenCalledTimes(1);
-    expect(k.got[1]).toContain("<f0:1.88>");
+    expect(k.got[1]).toContain("<f0:4.93,5.74,6.24>");
   });
   it("speaks the YomiScript as it is when the step cannot be loaded, and says so once", async () => {
     const k = inner(),

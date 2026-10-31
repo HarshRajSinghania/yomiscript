@@ -4,6 +4,7 @@
 // Units that already carry <f0:…> are left as written. The Katarite renders only the values.
 // Dialect is a Yomite setting, not part of YomiScript: realize(ys, {dialect:{ja:'osaka'}}).
 import { parse, isJa, VOWELS, type Section, type Token } from "./yomiscript.ts";
+import { jaContour } from "./ja_contour.ts";
 
 export interface Edit {
   at: number;
@@ -15,7 +16,7 @@ export interface RealizeOptions {
   /** only the Japanese accent phrases that carry ꜛ or ꜜ get values (and no devoicing is written); everything else is
    * left to the Katarite's own prosody. For callers that mark the accent only where they know it (D25) */
   markedOnly?: boolean;
-  /** multiplies the values written for Japanese (1 by default; 0.5 is the gentler pitch the tools use, D25) */
+  /** multiplies the values written for Japanese (1 by default) */
   jaScale?: number;
 }
 const inStr = (ch: string, s: string): boolean => s.includes(ch);
@@ -25,8 +26,9 @@ export function applyEdits(s: string, E: Edit[]): string {
   for (const e of [...E].sort((a, b) => b.at - a.at)) s = s.slice(0, e.at) + e.ins + s.slice(e.at + (e.del || 0));
   return s;
 }
-// Japanese: Tokyo-type pitch from ꜛ / ꜜ per accent phrase. Osaka (Keihan-type): a phrase without ꜛ is high-onset,
-// ꜛ marks where a low-onset phrase rises; the high stretch is flatter and vowels are not devoiced
+// Japanese: Tokyo-type pitch from ꜛ / ꜜ: three values per mora from the marks of the whole sentence (ja_contour.ts,
+// D28). Osaka (Keihan-type), per accent phrase: a phrase without ꜛ is high-onset, ꜛ marks where a low-onset phrase
+// rises; the high stretch is flatter and vowels are not devoiced
 const VLJ = ["k", "s", "ɕ", "t", "ʨ", "ʦ", "h", "ç", "ɸ", "p"];
 const voicelessStart = (m: Token | undefined): boolean => !!m && m.mk === "mora" && VLJ.some((x) => (m.ipa ?? "").startsWith(x));
 function devoiced(M: Token[], k: number, end: string): boolean {
@@ -37,24 +39,29 @@ function devoiced(M: Token[], k: number, end: string): boolean {
   return k === M.length - 1 && end === "$" && (m.ipa === "sɯ" || m.ipa === "sɨ");
 }
 interface JaOptions {
-  osaka: boolean;
   devoice: boolean;
   scale: number;
+  /** Tokyo: the values of every mora (jaContour); Osaka: null, the values come from the phrase */
+  contour: Map<Token, number[]> | null;
 }
-function jaPhrase(M: Token[], end: string, E: Edit[], { osaka, devoice, scale }: JaOptions): void {
-  // one accent phrase: high after ꜛ (or from the start without ꜛ), low after ꜜ; declining within the high stretch
-  let state = M[0].hasRise ? "L" : "H",
+function osakaValue(high: boolean, k: number, hk: number): number {
+  // high after ꜛ (or from the start without ꜛ), low after ꜜ; declining within the high stretch, flatter than Tokyo's
+  if (!high) return k === 0 ? -2.0 : -2.5 - 0.3 * hk;
+  const v = 2.5 - 0.45 * hk;
+  return v >= 0 ? 2.5 - (2.5 - v) / 3 : v;
+}
+function jaPhrase(M: Token[], end: string, E: Edit[], { devoice, scale, contour }: JaOptions): void {
+  // one accent phrase: the devoiced vowels (Tokyo) and the values
+  let high = !M[0].hasRise,
     hk = 0;
   M.forEach((m, k) => {
-    let v;
-    if (state === "H") v = 2.5 - 0.45 * hk++;
-    else v = k === 0 ? -2.0 : -2.5 - 0.3 * hk;
-    const auto = devoice && !osaka && devoiced(M, k, end);
-    if (auto && !m.dev) E.push({ at: m.vend ?? 0, ins: "̥" });
-    if (osaka && v >= 0) v = 2.5 - (2.5 - v) / 3;
-    if (!m.dev && !auto && !m.f0) E.push({ at: m.end ?? 0, ins: f0Mark([v * scale]) });
-    if (m.rise) state = "H";
-    if (m.fall) state = "L";
+    const c = contour ? contour.get(m) : !m.dev && [osakaValue(high, k, hk)];
+    if (c && !m.f0) E.push({ at: m.end ?? 0, ins: f0Mark(c.map((v) => v * scale)) });
+    // after the value: at the same offset, the later edit lands first (the ̥ before <f0:…>)
+    if (devoice && contour && devoiced(M, k, end) && !m.dev) E.push({ at: m.vend ?? 0, ins: "̥" });
+    if (high) hk++;
+    if (m.rise) high = true;
+    if (m.fall) high = false;
   });
 }
 const marked = (M: Token[]): boolean => M.some((m) => m.rise || m.fall);
@@ -66,7 +73,7 @@ function jaRules(sec: Section, E: Edit[], opt: RealizeOptions): void {
     C[c] ??= [];
     C[c].push(t);
   }
-  const o = { osaka: opt.dialect?.ja === "osaka", devoice: !opt.markedOnly, scale: opt.jaScale ?? 1 };
+  const o = { devoice: !opt.markedOnly, scale: opt.jaScale ?? 1, contour: opt.dialect?.ja === "osaka" ? null : jaContour(sec) };
   for (const M of C) if (!opt.markedOnly || marked(M)) jaPhrase(M, sec.end, E, o);
 }
 // English / French: stress-based pitch, phrase-boundary rise, sentence-final fall or rise

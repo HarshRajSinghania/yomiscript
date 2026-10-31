@@ -3,7 +3,8 @@
 import type { InferenceSession, Tensor } from "onnxruntime-common";
 import { plan, type Plan, type PlannedSection } from "./plan.ts";
 import { f0Override, join } from "./render.ts";
-import type { LoadBytes } from "@yomiscript/core";
+import { f0Japanese } from "./render_ja.ts";
+import { isJa, type LoadBytes } from "@yomiscript/core";
 export type { LoadBytes };
 
 /** the parts of onnxruntime this engine uses (onnxruntime-web and onnxruntime-node both have them) */
@@ -98,9 +99,20 @@ export class Engine {
   async synthSection(sec: PlannedSection, pitch: PitchMode = "values"): Promise<{ audio: Float32Array; f0: Float32Array; f0new: Float32Array; dur: number[] }> {
     const T = this.ort.Tensor;
     const { ref, dur, t_en, f0, N } = await this.predict(sec);
-    const F = pitch === "engine" ? Float32Array.from(f0) : f0Override(f0, sec.uid, dur, sec.U);
+    const F = pitch === "engine" ? Float32Array.from(f0) : this.pitch(sec, f0, dur);
     const r3 = await this.dec.run({ asr: t_en, F0: new T("float32", F, [1, F.length]), N, ref });
     return { audio: Float32Array.from(r3.audio.data as Float32Array), f0: Float32Array.from(f0), f0new: F, dur };
+  }
+  /** the F0 the decoder gets: the YomiScript's values put into the engine's own (Japanese: render_ja.ts, D28) */
+  private pitch(sec: PlannedSection, f0: Float32Array, dur: number[]): Float32Array {
+    if (!isJa(sec.lang)) return f0Override(f0, sec.uid, dur, sec.U);
+    return f0Japanese(
+      f0,
+      sec.uid,
+      dur,
+      sec.U,
+      sec.toks.map((t) => t.kind === "unit"),
+    );
   }
   async synth(ys: string, pitch: PitchMode = "values"): Promise<Synthesis> {
     const P = plan(ys);

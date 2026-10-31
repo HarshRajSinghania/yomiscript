@@ -32,9 +32,9 @@ export function accentMarks(ys: string, a: Analyzer): string {
     P = dictPhrases(text, njd, labels);
   return P ? writeMarks(ys, P).ys : ys;
 }
-/** how strongly the rules render the dictionary's marks: three quarters, the closest to OpenAI, Gemini and ElevenLabs
- * of 0.5 / 0.75 / 1 / 1.5 (D27, eval/prosody_ref; D25 had half, the strength never heard as the worst) */
-export const ACCENT_SCALE = 0.75;
+/** how strongly the rules render the dictionary's marks: full strength, the values of the whole sentence (D28; D25
+ * had half and D27 three quarters of the earlier phrase rule) */
+export const ACCENT_SCALE = 1;
 /** the Yomite step before Kokoro: the dictionary's marks, then pitch values for the marked phrases only */
 export function accentYomite(a: Analyzer): (ys: string) => string {
   return (ys) => {

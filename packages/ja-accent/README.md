@@ -6,7 +6,7 @@ adds the accent from a dictionary, where the dictionary reads a phrase the same 
 ```
 YomiScript (reading, <t:…>) ─► OpenJTalk's front end on its original text (jpreprocess + NAIST-JDIC, WebAssembly)
                             ─► ꜛ / ꜜ and ` | ` on the accent phrases the dictionary reads the same way
-                            ─► realize(…, { markedOnly: true, jaScale: 0.75 }): pitch values for those phrases only
+                            ─► realize(…, { markedOnly: true }): pitch values for those phrases only
                             ─► Kokoro (its own pitch everywhere else)
 ```
 
@@ -16,9 +16,9 @@ YomiScript (reading, <t:…>) ─► OpenJTalk's front end on its original text 
   misreadings out (上手 かみて, 角 かど, 辛い からい are read by OpenJTalk as じょうず, かく, つらい). Spellings that
   do not change a mora are the same (`hi` / `çi`, `z` / `dz`, `kj` / `kʲ`, `v` / `b`); `writeMarks` lists each phrase
   read another way in `stats.misses`.
-- The marks are rendered by the rule Yomite at three-quarter strength (`ACCENT_SCALE`, D27): of 0.5, 0.75, 1 and
-  1.5, the closest to the pitch of OpenAI, Gemini and ElevenLabs on the same texts (`eval/prosody_ref`). D25 had 0.5,
-  the strength never heard as the worst in the listening tests (`eval/browser_tts/trials/accent_marks/README.md`).
+- The marks are rendered by the rule Yomite at full strength (`ACCENT_SCALE`): three values per mora from the marks
+  of the whole sentence (D28, `jaContour` in `@yomiscript/core`). D25 had half and D27 three quarters of the earlier
+  phrase rule, whose values were heard as too strong above 1.
 - A YomiScript that is not Japanese, has no `<t:…>`, or carries its own `ꜛ ꜜ` or `<f0:…>` is left as it is
   (`needsAccent`).
 
