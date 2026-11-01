@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.449,
+ "output": {
+  "text": "町のルールに従って、ゴミを分別して出しましょう。",
+  "ys": "ja /matɕi<t:町> no<t:の> ɾɯːɾɯ<t:ルール> ɲi<t:に> ɕitaɡatte<t:従って、> ‖ ɡomi<t:ゴミ> o<t:を> bɯmbetsɯ<t:分別> ɕite<t:して> daɕimaɕoː<t:出しましょう。> ↘/"
+ }
+}

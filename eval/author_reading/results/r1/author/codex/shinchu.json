@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.661,
+ "output": {
+  "text": "彼女の心中は複雑でしょうね。",
+  "ys": "ja /kano dʑo<t:彼女> no<t:の> ɕintɕɯː<t:心中> wa<t:は> ɸɯkɯdzatsɯ<t:複雑> deɕoː<t:でしょう> ne<t:ね。> ↘/"
+ }
+}

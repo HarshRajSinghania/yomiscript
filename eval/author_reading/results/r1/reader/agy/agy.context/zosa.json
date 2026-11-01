@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 9.807,
+ "output": {
+  "ys": "ja /iːe<t:いいえ> ‖<t:、> dzoːsa<t:造作> mo<t:も> nai<t:ない> koto<t:こと> deɕita<t:でした> jo<t:よ。> ↘/"
+ }
+}

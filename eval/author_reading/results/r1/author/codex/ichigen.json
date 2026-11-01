@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 9.168,
+ "output": {
+  "text": "一見さんお断りのお店なら、紹介なしでは入れません。",
+  "ys": "ja /itɕigeɴsaɴ<t:一見さん> okotowaɾi<t:お断り> no<t:の> omi se<t:お店> naɾa<t:なら、> ‖ ɕoːkai<t:紹介> naɕi<t:なし> dewa<t:では> haiɾemaseɴ<t:入れません。> ↘/"
+ }
+}

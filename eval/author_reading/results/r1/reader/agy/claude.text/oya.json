@@ -1,0 +1,8 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.751,
+ "output": {
+  "ys": "ja /apaːto<t:アパート> no<t:の> jatɕiɴ<t:家賃> wa<t:は> ‖<t:、> oːjasan<t:大家さん> ni<t:に> haɾaimasɯ<t:払います。> ↘/"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.621,
+ "output": {
+  "text": "次の角を右に曲がってください。",
+  "ys": "ja /tsɯgi<t:次> no<t:の> kado<t:角> o<t:を> migi<t:右> ni<t:に> magatte<t:曲がって> kɯdasai<t:ください。> ↘/"
+ }
+}

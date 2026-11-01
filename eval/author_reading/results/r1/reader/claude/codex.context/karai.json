@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.325,
+ "output": {
+  "ys": "ja /wat aɕi<t:私> wa<t:は> tabeɾaɾemaseɴ<t:食べられません> ɡa<t:が、> ‖ kitto<t:きっと> kaɾai<t:辛い> deɕoː<t:でしょう> ne<t:ね。> ↘/"
+ }
+}

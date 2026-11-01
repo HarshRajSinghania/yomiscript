@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 4.987,
+ "output": {
+  "text": "変化の術を使います。",
+  "ys": "ja /heŋɡe<t:変化> no<t:の> dʑɯtsɯ<t:術> o<t:を> tsɯkaimasɯ<t:使います。> ↘/"
+ }
+}

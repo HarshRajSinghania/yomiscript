@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 18.463,
+ "output": {
+  "text": "寒気と、のどの痛みでつらいです。",
+  "ys": "ja /samɯke<t:寒気> to<t:と> ‖<t:、> nodo<t:のど> no<t:の> itami<t:痛み> de<t:で> tsɯɾai<t:つらい> desɯ<t:です。> ↘/"
+ }
+}

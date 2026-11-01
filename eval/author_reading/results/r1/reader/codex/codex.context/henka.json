@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.347,
+ "output": {
+  "ys": "ja /tɕiiki<t:地域> ɡa<t:が> wakaɾanai<t:わからない> tame<t:ため、> ‖ kioɴ<t:気温> no<t:の> heŋka<t:変化> wa<t:は> kotaeɾaɾemasen<t:答えられません。> ↘/"
+ }
+}

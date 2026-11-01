@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.583,
+ "output": {
+  "text": "今日では、すっかり当たり前の技術になっています。",
+  "ys": "ja /konɲitɕi<t:今日> de<t:で> wa<t:は> ‖<t:、> sɯkkaɾi<t:すっかり> ataɾimae<t:当たり前> no<t:の> ɡidʑɯtsɯ<t:技術> ɲi<t:に> natte<t:なって> imasɯ<t:います。> ↘/"
+ }
+}

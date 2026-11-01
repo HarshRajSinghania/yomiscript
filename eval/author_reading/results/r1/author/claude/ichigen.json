@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 6.671,
+ "output": {
+  "text": "いいえ、一見さんはお断りのことが多いです。",
+  "ys": "ja /iie<t:いいえ> ‖<t:、> itɕigeɴsaɴ<t:一見さん> wa<t:は> okotowaɾi<t:お断り> no<t:の> koto<t:こと> ga<t:が> oːi<t:多い> desɯ<t:です。> ↘/"
+ }
+}

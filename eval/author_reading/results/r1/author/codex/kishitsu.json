@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 4.531,
+ "output": {
+  "text": "穏やかな気質の人です。",
+  "ys": "ja /odajaka<t:穏やか> na<t:な> kiɕitsɯ<t:気質> no<t:の> çito<t:人> desɯ<t:です。> ↘/"
+ }
+}

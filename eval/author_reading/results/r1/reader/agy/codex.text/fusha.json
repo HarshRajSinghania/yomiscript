@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.3,
+ "output": {
+  "ys": "ja /soɾe<t:それ> wa<t:は> ɸɯːɕa<t:風車> desɯ<t:です。> ↘/"
+ }
+}

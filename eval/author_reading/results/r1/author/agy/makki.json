@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 8.145,
+ "output": {
+  "text": "現在、病気は末期の段階です。",
+  "ys": "ja /ɡendzai<t:現在> ‖<t:、> bʲoːki<t:病気> wa<t:は> makki<t:末期> no<t:の> daŋkai<t:段階> desɯ<t:です。> ↘/"
+ }
+}

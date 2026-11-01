@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 10.325,
+ "output": {
+  "ys": "ja /ɾaiɕɯː<t:来週> no<t:の> kioɴ<t:気温> no<t:の> heŋka<t:変化> wa<t:は> ‖<t:、> johoː<t:予報> o<t:を> kakɯɲiɴ<t:確認> dekinai<t:できない> node<t:ので> wakaɾimaseɴ<t:分かりません。> ↘/"
+ }
+}

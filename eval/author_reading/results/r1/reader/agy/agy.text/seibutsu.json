@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 10.293,
+ "output": {
+  "ys": "ja /koːkoː<t:高校> no<t:の> ɾika<t:理科> de<t:で> wa<t:は> ‖<t:、> seːbɯtsɯ<t:生物> ɡa<t:が> itɕibaɴ<t:一番> sɯki<t:好き> deɕita<t:でした。> ↘/"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.294,
+ "output": {
+  "text": "目下、順調に進んでいます。",
+  "ys": "ja /mokka<t:目下> ‖<t:、> dʑɯntɕoː<t:順調> ni<t:に> susunde<t:進んで> imasɯ<t:います。> ↘/"
+ }
+}

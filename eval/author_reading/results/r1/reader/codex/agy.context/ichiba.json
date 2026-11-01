@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.349,
+ "output": {
+  "ys": "ja /asa<t:朝> no<t:の> ɯoitɕiba<t:魚市場> e<t:へ> ikɯ<t:行く> to<t:と> iː<t:いい> desɯ<t:です> jo<t:よ。> ↘/"
+ }
+}

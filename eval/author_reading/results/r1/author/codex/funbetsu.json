@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.957,
+ "output": {
+  "text": "大人に求められるのは、分別を持って行動することです。",
+  "ys": "ja /otona<t:大人> ɲi<t:に> motomeɾaɾeɾɯ<t:求められる> no<t:の> wa<t:は、> ‖ ɸɯm betsɯ<t:分別> o<t:を> motte<t:持って> koːdoː<t:行動> sɯɾɯ<t:する> koto<t:こと> desɯ<t:です。> ↘/"
+ }
+}

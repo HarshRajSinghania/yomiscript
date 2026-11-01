@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.45,
+ "output": {
+  "text": "最後に二人は心中します。",
+  "ys": "ja /saiɡo<t:最後> ni<t:に> ɸɯtaɾi<t:二人> wa<t:は> ɕindʑɯː<t:心中> ɕimasɯ<t:します。> ↘/"
+ }
+}

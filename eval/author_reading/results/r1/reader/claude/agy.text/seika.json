@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 12.43,
+ "output": {
+  "ys": "ja /seːka<t:「生花> o<t:を> osonae<t:お供え> ɕimasɯ<t:します」> to<t:と> ieba<t:言えば> tsɯtawaɾimasɯ<t:伝わります。> ↘/"
+ }
+}

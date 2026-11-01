@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.154,
+ "output": {
+  "ys": "ja /ima<t:今> wa<t:は> totemo<t:とても> tsɯɾai<t:辛い> kimotɕi<t:気持ち> de<t:で> ippai<t:いっぱい> da<t:だ> to<t:と> omoimasɯ<t:思います。> ↘/"
+ }
+}

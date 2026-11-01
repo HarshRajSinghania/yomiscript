@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.757,
+ "output": {
+  "text": "最後に二人は心中してしまいます。",
+  "ys": "ja /saiɡo<t:最後> ɲi<t:に> ɸɯtaɾi<t:二人> wa<t:は> ɕiɲdʑɯː<t:心中> ɕite<t:して> ɕimaimasɯ<t:しまいます。> ↘/"
+ }
+}

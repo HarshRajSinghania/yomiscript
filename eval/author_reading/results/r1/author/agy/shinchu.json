@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.452,
+ "output": {
+  "text": "彼女の心中は、不安と迷いでいっぱいだと思います。",
+  "ys": "ja /kanodʑo<t:彼女> no<t:の> ɕintɕɯː<t:心中> wa<t:は> ‖<t:、> ɸɯaɴ<t:不安> to<t:と> majoi<t:迷い> de<t:で> ippai<t:いっぱい> da<t:だ> to<t:と> omoimasɯ<t:思います。> ↘/"
+ }
+}

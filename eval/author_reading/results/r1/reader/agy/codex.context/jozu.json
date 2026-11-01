@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.667,
+ "output": {
+  "ys": "ja /totemo<t:とても> ɕiɡoto<t:仕事> ɡa<t:が> dʑoːzɯ<t:上手> de<t:で、> ‖ sɯdeɲi<t:すでに> tajoɾi<t:頼り> ɲi<t:に> natte<t:なって> imasɯ<t:います。> ↘/"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.847,
+ "output": {
+  "text": "北から寒気が流れ込むからです。",
+  "ys": "ja /kita<t:北> kaɾa<t:から> kaŋki<t:寒気> ɡa<t:が> naɡaɾekomɯ<t:流れ込む> kaɾa<t:から> desɯ<t:です。> ↘/"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 10.168,
+ "output": {
+  "text": "今日の時点では、次の会議の日時は分かりません。",
+  "ys": "ja /kʲoː<t:今日> no<t:の> dʑiteɴ<t:時点> de<t:で> wa<t:は、> ‖ tsɯɡi<t:次> no<t:の> kaiɡi<t:会議> no<t:の> ɲitɕidʑi<t:日時> wa<t:は> wakaɾimaseɴ<t:分かりません。> ↘/"
+ }
+}

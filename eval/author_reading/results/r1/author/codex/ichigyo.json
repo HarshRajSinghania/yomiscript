@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.517,
+ "output": {
+  "text": "一行に収まる長さが目安です。",
+  "ys": "ja /itɕiɡʲoː<t:一行> ɲi<t:に> osamaɾɯ<t:収まる> naɡasa<t:長さ> ɡa<t:が> mejasɯ<t:目安> desɯ<t:です。> ↘/"
+ }
+}

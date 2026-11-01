@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 10.363,
+ "output": {
+  "text": "それは風車です。",
+  "ys": "ja /soɾe<t:それ> wa<t:は> ɸɯːɕa<t:風車> desɯ<t:です。> ↘/"
+ }
+}

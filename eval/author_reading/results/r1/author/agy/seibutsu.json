@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.385,
+ "output": {
+  "text": "高校の理科では、生物が一番好きでした。",
+  "ys": "ja /koːkoː<t:高校> no<t:の> ɾika<t:理科> de<t:で> wa<t:は> ‖<t:、> seːbɯtsɯ<t:生物> ɡa<t:が> itɕibaɴ<t:一番> sɯki<t:好き> deɕita<t:でした。> ↘/"
+ }
+}

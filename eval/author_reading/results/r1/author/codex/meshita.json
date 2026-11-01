@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.84,
+ "output": {
+  "text": "目下の相手には、敬語を使わなくてもよい場合があります。",
+  "ys": "ja /meɕita<t:目下> no<t:の> aite<t:相手> ɲi<t:に> wa<t:は、> ‖ keːɡo<t:敬語> o<t:を> tsɯkawanakɯte<t:使わなくて> mo<t:も> joi<t:よい> baai<t:場合> ɡa<t:が> aɾimasɯ<t:あります。> ↘/"
+ }
+}

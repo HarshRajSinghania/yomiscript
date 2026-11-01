@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 8.106,
+ "output": {
+  "text": "ピリッと辛いけど、すごく美味しいです。",
+  "ys": "ja /piɾitto<t:ピリッと> kaɾai<t:辛い> kedo<t:けど> ‖<t:、> sɯɡokɯ<t:すごく> oiɕiː<t:美味しい> desɯ<t:です。> ↘/"
+ }
+}

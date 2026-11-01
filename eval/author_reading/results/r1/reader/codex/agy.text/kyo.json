@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 11.549,
+ "output": {
+  "ys": "ja /kʲoː<t:今日> no<t:の> dʑiteɴ<t:時点> de<t:で> wa<t:は> ‖<t:、> tsɯɡi<t:次> no<t:の> kaiɡi<t:会議> no<t:の> ɲitɕidʑi<t:日時> wa<t:は> wakaɾimaseɴ<t:分かりません。> ↘/"
+ }
+}

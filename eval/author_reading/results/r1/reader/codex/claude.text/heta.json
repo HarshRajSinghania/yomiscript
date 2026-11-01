@@ -1,0 +1,8 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.941,
+ "output": {
+  "ys": "ja /e<t:絵> o<t:を> mite<t:見て> inai<t:いない> node<t:ので> ‖<t:、> heta<t:下手> ka<t:か> doː<t:どう> ka<t:か> wa<t:は> handan<t:判断> dekimaseɴ<t:できません。> ↘/"
+ }
+}

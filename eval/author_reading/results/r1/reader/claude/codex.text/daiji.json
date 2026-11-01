@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.231,
+ "output": {
+  "ys": "ja /hai<t:はい> ‖<t:、> totemo<t:とても> daidʑi<t:大事> na<t:な> ɕoɾɯi<t:書類> na<t:な> node<t:ので> ‖<t:、> nakɯsanaide<t:なくさないで> kɯdasai<t:ください。> ↘/"
+ }
+}

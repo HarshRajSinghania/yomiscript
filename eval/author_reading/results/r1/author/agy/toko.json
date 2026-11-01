@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.62,
+ "output": {
+  "text": "床の間です。",
+  "ys": "ja /tokonoma<t:床の間> desɯ<t:です。> ↘/"
+ }
+}

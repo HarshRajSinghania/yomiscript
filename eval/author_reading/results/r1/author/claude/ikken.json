@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.696,
+ "output": {
+  "text": "一見、おしゃれな店に見えたよ。",
+  "ys": "ja /ikkeɴ<t:一見> ‖<t:、> oɕaɾena<t:おしゃれな> mise<t:店> ɲi<t:に> mieta<t:見えた> jo<t:よ。> ↘/"
+ }
+}

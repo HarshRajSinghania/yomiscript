@@ -1,0 +1,8 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.954,
+ "output": {
+  "ys": "ja /osaɕimi<t:お刺身> wa<t:は> namamono<t:生物> nanode<t:なので、> ‖ naɲɲitɕi<t:何日> mo<t:も> okazɯɲi<t:置かずに> ‖ kʲoːdʑɯː<t:今日中> ni<t:に> tabete<t:食べて> kɯdasai<t:ください。> ↘/"
+ }
+}

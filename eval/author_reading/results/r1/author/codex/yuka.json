@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 4.987,
+ "output": {
+  "text": "まずは床のほこりを取りましょう。",
+  "ys": "ja /mazɯ<t:まず> wa<t:は> jɯka<t:床> no<t:の> hokoɾi<t:ほこり> o<t:を> toɾimaɕoː<t:取りましょう。> ↘/"
+ }
+}

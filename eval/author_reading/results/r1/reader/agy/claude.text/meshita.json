@@ -1,0 +1,8 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 6.477,
+ "output": {
+  "ys": "ja /kazokɯ<t:家族> ja<t:や> jɯːdʑiɴ<t:友人、> ‖ mata<t:また> wa<t:は> meɕita<t:目下> no<t:の> hito<t:人> ni<t:に> wa<t:は> tsɯkawanakɯte<t:使わなくて> mo<t:も> daidʑoːbɯ<t:大丈夫> desɯ<t:です。> ↘/"
+ }
+}

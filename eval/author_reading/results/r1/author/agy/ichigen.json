@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 9.565,
+ "output": {
+  "text": "いいえ、あそこは一見さんお断りです。",
+  "ys": "ja /iːe<t:いいえ> ‖<t:、> asoko<t:あそこ> wa<t:は> itɕiɡeɴsaɴ<t:一見さん> okotowaɾi<t:お断り> desɯ<t:です。> ↘/"
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 6.92,
+ "output": {
+  "ys": "ja /tɕiːki<t:地域> ɡa<t:が> wakaɾanai<t:わからない> tame<t:ため> ‖<t:、> kioɴ<t:気温> no<t:の> heŋka<t:変化> wa<t:は> kotaeɾaɾemaseɴ<t:答えられません。> ↘/"
+ }
+}

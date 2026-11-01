@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 9.966,
+ "output": {
+  "text": "お刺身は生物なので、今日中に食べてください。",
+  "ys": "ja /osaɕimi<t:お刺身> wa<t:は> namamono<t:生物> nanode<t:なので> ‖<t:、> kʲoːdʑɯː<t:今日中> ɲi<t:に> tabete<t:食べて> kɯdasai<t:ください。> ↘/"
+ }
+}

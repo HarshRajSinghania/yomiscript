@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.048,
+ "output": {
+  "text": "次の角で曲がって。",
+  "ys": "ja /tsɯɡi<t:次> no<t:の> kado<t:角> de<t:で> maɡatte<t:曲がって。> ↘/"
+ }
+}

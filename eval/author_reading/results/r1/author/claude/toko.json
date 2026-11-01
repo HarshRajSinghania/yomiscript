@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 4.143,
+ "output": {
+  "text": "床の間です。",
+  "ys": "ja /tokonoma<t:床の間> desɯ<t:です。> ↘/"
+ }
+}

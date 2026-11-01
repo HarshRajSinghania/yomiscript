@@ -15,8 +15,9 @@ Each item says what it would show. In rough order of importance.
 5. **Human listening tests.** MOS for naturalness and a reading-correctness judgement per sentence, comparing Kokoro and
    the Supertonic Katarite on the same YomiScript, the original front ends, and a cloud TTS. Measures naturalness, which
    Whisper cannot, and confirms the informal impression that Supertonic sounds more natural when its reading is right.
-6. **Context-aware baselines.** A Japanese G2P that uses context (a neural reading model, an LLM reading someone
-   else's text rather than its own) next to pyopenjtalk. Separates "an LLM reads better" from "the author reads better".
+6. **Context-aware baselines.** A Japanese G2P that uses context (a neural reading model) next to pyopenjtalk. The
+   LLM reading someone else's text is done (`eval/author_reading`, one run): repeat it, review its readings, and try
+   terser answers and free conversation.
 7. **Latency and token cost in the browser.** Time to first audio with the YomiScript streamed per sentence, on
    WebGPU and WASM, and output tokens per character of speech with and without the text layer. Quantifies the cost of
    letting the LLM write the pronunciation.

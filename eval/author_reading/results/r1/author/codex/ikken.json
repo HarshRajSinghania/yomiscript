@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.823,
+ "output": {
+  "text": "一見、落ち着いた雰囲気のお店だった。",
+  "ys": "ja /ikkeɴ<t:一見、> ‖ otɕitsɯita<t:落ち着いた> ɸɯɴiki<t:雰囲気> no<t:の> omise<t:お店> datta<t:だった。> ↘/"
+ }
+}

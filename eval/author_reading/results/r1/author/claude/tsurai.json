@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 6.212,
+ "output": {
+  "text": "きっと今はすごく辛い気持ちだと思うよ。",
+  "ys": "ja /kitto<t:きっと> ima<t:今> wa<t:は> sɯgokɯ<t:すごく> tsɯɾai<t:辛い> kimotɕi<t:気持ち> da<t:だ> to<t:と> omoɯ<t:思う> jo<t:よ。> ↘/"
+ }
+}

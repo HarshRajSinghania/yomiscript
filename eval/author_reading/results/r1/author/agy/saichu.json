@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 17.551,
+ "output": {
+  "text": "今、ちょうど料理をしている最中です。",
+  "ys": "ja /ima<t:今> ‖<t:、> tɕoːdo<t:ちょうど> ɾʲoːɾi<t:料理> o<t:を> ɕite<t:して> iɾɯ<t:いる> saitɕɯː<t:最中> desɯ<t:です。> ↘/"
+ }
+}

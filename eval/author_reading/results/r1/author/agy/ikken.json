@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 6.825,
+ "output": {
+  "text": "一見、普通の家に見えました。",
+  "ys": "ja /ikkeɴ<t:一見> ‖<t:、> ɸɯtsɯː<t:普通> no<t:の> ie<t:家> ɲi<t:に> miemaɕita<t:見えました。> ↘/"
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 6.989,
+ "output": {
+  "ys": "ja /ɾaiɕɯː<t:来週> no<t:の> kion<t:気温> no<t:の> heŋka<t:変化> wa<t:は> ‖<t:、> johoː<t:予報> o<t:を> kakɯnin<t:確認> dekinai<t:できない> node<t:ので> wakaɾimaseɴ<t:分かりません。> ↘/"
+ }
+}

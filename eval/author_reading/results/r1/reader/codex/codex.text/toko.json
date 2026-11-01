@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.17,
+ "output": {
+  "ys": "ja /tokonoma<t:床の間> desɯ<t:です。> ↘/"
+ }
+}

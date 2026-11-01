@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.921,
+ "output": {
+  "text": "来週も気温に大きな変化はありません。",
+  "ys": "ja /ɾaiɕɯː<t:来週> mo<t:も> kioɴ<t:気温> ɲi<t:に> oːkina<t:大きな> heŋka<t:変化> wa<t:は> aɾimaseɴ<t:ありません。> ↘/"
+ }
+}

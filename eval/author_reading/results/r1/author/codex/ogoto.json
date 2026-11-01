@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 9.007,
+ "output": {
+  "text": "大事には至らなかったよ。",
+  "ys": "ja /oːɡoto<t:大事> ni<t:に> wa<t:は> itaɾanakatta<t:至らなかった> jo<t:よ。> ↘/"
+ }
+}

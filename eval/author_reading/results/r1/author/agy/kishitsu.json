@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.832,
+ "output": {
+  "text": "穏やかで明るい気質の持ち主ですよ。",
+  "ys": "ja /odajaka<t:穏やか> de<t:で> akaɾɯi<t:明るい> kiɕitsɯ<t:気質> no<t:の> motɕinɯɕi<t:持ち主> desɯ<t:です> jo<t:よ。> ↘/"
+ }
+}

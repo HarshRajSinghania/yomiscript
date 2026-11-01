@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.801,
+ "output": {
+  "ys": "ja /hai<t:はい、> ‖ ikkoː<t:一行> wa<t:は> saki hodo<t:先ほど> jado<t:宿> ni<t:に> toːtɕakɯ<t:到着> ɕimaɕita<t:しました。> ↘/"
+ }
+}

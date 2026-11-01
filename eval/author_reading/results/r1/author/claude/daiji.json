@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 6.28,
+ "output": {
+  "text": "はい、とても大事な書類なので、なくさないでください。",
+  "ys": "ja /hai<t:はい> ‖<t:、> totemo<t:とても> daidʑi<t:大事> na<t:な> ɕoɾui<t:書類> na<t:な> node<t:ので> ‖<t:、> nakɯsanaide<t:なくさないで> kɯdasai<t:ください。> ↘/"
+ }
+}

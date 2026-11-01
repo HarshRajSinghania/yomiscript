@@ -1,0 +1,8 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.146,
+ "output": {
+  "ys": "ja /samɯke<t:寒気> ga<t:が> sɯɾɯnda<t:するんだ。> ↘/"
+ }
+}

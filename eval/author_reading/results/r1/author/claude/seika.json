@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 6.68,
+ "output": {
+  "text": "「生花をお供えします」と言えば伝わります。",
+  "ys": "ja /seːka<t:「生花> o<t:を> osonae<t:お供え> ɕimasɯ<t:します」> to<t:と> ieba<t:言えば> tsɯtawaɾimasɯ<t:伝わります。> ↘/"
+ }
+}

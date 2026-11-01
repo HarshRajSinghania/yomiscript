@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.368,
+ "output": {
+  "text": "仕事の進め方が上手です。",
+  "ys": "ja /ɕiɡoto<t:仕事> no<t:の> sɯsɯmekata<t:進め方> ɡa<t:が> dʑoːzɯ<t:上手> desɯ<t:です。> ↘/"
+ }
+}

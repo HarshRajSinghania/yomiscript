@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.148,
+ "output": {
+  "ys": "ja /daidʑi<t:大事> ni<t:に> wa<t:は> itaɾazɯ<t:至らず、> ‖ bɯdʑi<t:無事> ni<t:に> kaiketsɯ<t:解決> ɕimaɕita<t:しました。> ↘/"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 9.121,
+ "output": {
+  "text": "自分の腕に誇りを持ち、妥協を許さない「職人気質」の人たちです。",
+  "ys": "ja /dʑibɯɴ<t:自分> no<t:の> ɯde<t:腕> ɲi<t:に> hokoɾi<t:誇り> o<t:を> motɕi<t:持ち> ‖<t:、> dakʲoː<t:妥協> o<t:を> jɯɾɯsanaɪ<t:許さない> ɕokɯɲiŋkatagʲi<t:「職人気質」> no<t:の> çitotatɕi<t:人たち> desɯ<t:です。> ↘/"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 6.626,
+ "output": {
+  "text": "それは生花です。",
+  "ys": "ja /soɾe<t:それ> wa<t:は> ikebana<t:生花> desɯ<t:です。> ↘/"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 9.869,
+ "output": {
+  "text": "アジアの市場に向けて売り出す計画です。",
+  "ys": "ja /adʑia<t:アジア> no<t:の> ɕidʑoː<t:市場> ɲi<t:に> mɯkete<t:向けて> ɯɾidasɯ<t:売り出す> keːkakɯ<t:計画> desɯ<t:です。> ↘/"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 9.31,
+ "output": {
+  "text": "今日では珍しくありません。",
+  "ys": "ja /koɲɲitɕi<t:今日> de<t:で> wa<t:は> mezɯɾaɕikɯ<t:珍しく> aɾimaseɴ<t:ありません。> ↘/"
+ }
+}

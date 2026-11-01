@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.329,
+ "output": {
+  "text": "色紙に書いて渡そう。",
+  "ys": "ja /ɕikiɕi<t:色紙> ni<t:に> kaite<t:書いて> watasoː<t:渡そう。> ↘/"
+ }
+}

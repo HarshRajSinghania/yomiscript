@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 9.303,
+ "output": {
+  "ys": "ja /mada<t:まだ> e<t:絵> o<t:を> mite<t:見て> inai<t:いない> node<t:ので> ‖<t:、> heta<t:下手> ka<t:か> doː<t:どう> ka<t:か> wa<t:は> iemaseɴ<t:言えません。> ↘/"
+ }
+}

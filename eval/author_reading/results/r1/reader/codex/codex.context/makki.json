@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.448,
+ "output": {
+  "ys": "ja /ima<t:今> no<t:の> dʑoːhoː<t:情報> dake<t:だけ> de<t:で> wa<t:は、> ‖ makki<t:末期> ka<t:か> doː<t:どう> ka<t:か> wa<t:は> wakaɾimaseɴ<t:分かりません。> ↘/"
+ }
+}

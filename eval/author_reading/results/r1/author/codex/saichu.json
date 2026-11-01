@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.054,
+ "output": {
+  "text": "今、休憩の最中だから電話してもいいよ。",
+  "ys": "ja /ima<t:今、> ‖ kʲɯːkeː<t:休憩> no<t:の> saitɕɯː<t:最中> da<t:だ> kaɾa<t:から> deɴwa<t:電話> ɕite<t:して> mo<t:も> iː<t:いい> jo<t:よ。> ↘/"
+ }
+}

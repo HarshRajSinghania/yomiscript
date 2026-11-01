@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 9.254,
+ "output": {
+  "text": "はい、脇役は客席から見て左側の下手から登場します。",
+  "ys": "ja /hai<t:はい> ‖<t:、> wakijakɯ<t:脇役> wa<t:は> kʲakɯseki<t:客席> kaɾa<t:から> mite<t:見て> çidaɾiɡawa<t:左側> no<t:の> ɕimote<t:下手> kaɾa<t:から> toːdʑoː<t:登場> ɕimasɯ<t:します。> ↘/"
+ }
+}

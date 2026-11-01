@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.497,
+ "output": {
+  "text": "「生花をお願いします」と伝えれば大丈夫です。",
+  "ys": "ja /seːka<t:「生花> o<t:を> o<t:お> neɡai<t:願い> ɕimasɯ<t:します」> to<t:と> tsɯtaeɾeba<t:伝えれば> daidʑoːbɯ<t:大丈夫> desɯ<t:です。> ↘/"
+ }
+}

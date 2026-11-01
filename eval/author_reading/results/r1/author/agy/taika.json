@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 8.132,
+ "output": {
+  "text": "書道界の大家と呼ばれるほど有名な先生です。",
+  "ys": "ja /ɕodoːkai<t:書道界> no<t:の> taika<t:大家> to<t:と> jobaɾeɾɯ<t:呼ばれる> hodo<t:ほど> jɯːmeːna<t:有名な> seːseː<t:先生> desɯ<t:です。> ↘/"
+ }
+}

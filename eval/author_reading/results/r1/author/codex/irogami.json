@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.053,
+ "output": {
+  "text": "折り紙用の色紙を買うといいですよ。",
+  "ys": "ja /oɾiɡamijoː<t:折り紙用> no<t:の> iɾoɡami<t:色紙> o<t:を> kaɯ<t:買う> to<t:と> iː<t:いい> desɯ<t:です> jo<t:よ。> ↘/"
+ }
+}

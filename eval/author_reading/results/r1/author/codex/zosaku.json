@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.001,
+ "output": {
+  "text": "木の造作が美しい家でした。",
+  "ys": "ja /ki<t:木> no<t:の> dzoːsakɯ<t:造作> ɡa<t:が> ɯtsɯkɯɕiː<t:美しい> ie<t:家> deɕita<t:でした。> ↘/"
+ }
+}

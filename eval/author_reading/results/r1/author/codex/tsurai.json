@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.168,
+ "output": {
+  "text": "きっと辛いと思う。",
+  "ys": "ja /kitto<t:きっと> tsɯɾai<t:辛い> to<t:と> omoɯ<t:思う。> ↘/"
+ }
+}

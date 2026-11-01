@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 4.894,
+ "output": {
+  "text": "大事な書類です。",
+  "ys": "ja /daidʑi<t:大事> na<t:な> ɕoɾɯi<t:書類> desɯ<t:です。> ↘/"
+ }
+}

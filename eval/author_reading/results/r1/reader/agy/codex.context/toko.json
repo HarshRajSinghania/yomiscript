@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.38,
+ "output": {
+  "ys": "ja /toko<t:床> no<t:の> ma<t:間> desɯ<t:です。> ↘/"
+ }
+}

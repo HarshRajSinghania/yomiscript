@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.939,
+ "output": {
+  "text": "一行は無事に宿へ着きました。",
+  "ys": "ja /ikkoː<t:一行> wa<t:は> bɯdʑi<t:無事> ɲi<t:に> jado<t:宿> e<t:へ> tsɯkimaɕita<t:着きました。> ↘/"
+ }
+}

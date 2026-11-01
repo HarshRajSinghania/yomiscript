@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.94,
+ "output": {
+  "text": "目下、順調に進んでいます。",
+  "ys": "ja /mokka<t:目下> ‖<t:、> dʑɯntɕoː<t:順調> ɲi<t:に> sɯsɯnde<t:進んで> imasɯ<t:います。> ↘/"
+ }
+}

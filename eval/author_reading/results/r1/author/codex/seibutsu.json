@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 4.777,
+ "output": {
+  "text": "生物です。",
+  "ys": "ja /seːbɯtsɯ<t:生物> desɯ<t:です。> ↘/"
+ }
+}

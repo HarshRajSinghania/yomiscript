@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 10.917,
+ "output": {
+  "text": "まずは床の乾拭きから始めましょう。",
+  "ys": "ja /madzɯ<t:まず> wa<t:は> jɯka<t:床> no<t:の> kaɾabɯki<t:乾拭き> kaɾa<t:から> hadʑimemaɕoː<t:始めましょう。> ↘/"
+ }
+}

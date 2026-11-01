@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 6.748,
+ "output": {
+  "ys": "ja /hai<t:はい> ‖<t:、> totemo<t:とても> daidʑina<t:大事な> ɕoɾɯi<t:書類> nanode<t:なので> ‖<t:、> nakɯsanaide<t:なくさないで> kɯdasai<t:ください。> ↘/"
+ }
+}

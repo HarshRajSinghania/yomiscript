@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 9.129,
+ "output": {
+  "text": "下手なんてことは全然なくて、とても味のある素敵な絵ですね。",
+  "ys": "ja /heta<t:下手> nante<t:なんて> koto<t:こと> wa<t:は> dzendzeɴ<t:全然> nakɯte<t:なくて> ‖<t:、> totemo<t:とても> adʑi<t:味> no<t:の> aɾɯ<t:ある> sɯteki<t:素敵> na<t:な> e<t:絵> desɯ<t:です> ne<t:ね。> ↘/"
+ }
+}

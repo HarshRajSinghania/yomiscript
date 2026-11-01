@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 8.566,
+ "output": {
+  "text": "夜中の公園には人気がありません。",
+  "ys": "ja /jonaka<t:夜中> no<t:の> koːeɴ<t:公園> ɲi<t:に> wa<t:は> çitoke<t:人気> ɡa<t:が> aɾimaseɴ<t:ありません。> ↘/"
+ }
+}

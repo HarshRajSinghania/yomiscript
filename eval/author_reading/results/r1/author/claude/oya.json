@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.965,
+ "output": {
+  "text": "大家さんに払います。",
+  "ys": "ja /oːja<t:大家> saɲ<t:さん> ɲi<t:に> haɾaimasɯ<t:払います。> ↘/"
+ }
+}

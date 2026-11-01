@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.05,
+ "output": {
+  "ys": "ja /kita<t:北> kaɾa<t:から> kaŋki<t:寒気> ɡa<t:が> naɡaɾekomɯ<t:流れ込む> kaɾa<t:から> desɯ<t:です。> ↘/"
+ }
+}

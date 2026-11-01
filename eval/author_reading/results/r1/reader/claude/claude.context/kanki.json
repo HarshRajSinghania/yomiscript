@@ -1,0 +1,8 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 5.463,
+ "output": {
+  "ys": "ja /kita<t:北> kaɾa<t:から> tsɯjoi<t:強い> kaŋki<t:寒気> ɡa<t:が> nagaɾekonde<t:流れ込んで> kɯɾɯ<t:くる> tame<t:ため> desɯ<t:です。> ↘/"
+ }
+}

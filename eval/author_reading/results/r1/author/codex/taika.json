@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.677,
+ "output": {
+  "text": "書道界の大家と呼ばれる先生です。",
+  "ys": "ja /ɕodoːkai<t:書道界> no<t:の> taika<t:大家> to<t:と> jobaɾeɾɯ<t:呼ばれる> seːseː<t:先生> desɯ<t:です。> ↘/"
+ }
+}

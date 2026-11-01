@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.804,
+ "output": {
+  "ys": "ja /osaɕimi<t:お刺身> wa<t:は> namamono<t:生物> na<t:な> node<t:ので> ‖<t:、> kʲoːdʑɯː<t:今日中> ɲi<t:に> tabete<t:食べて> kɯdasai<t:ください。> ↘/"
+ }
+}

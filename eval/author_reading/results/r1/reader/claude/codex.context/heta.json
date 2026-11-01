@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.932,
+ "output": {
+  "ys": "ja /mada<t:まだ> e<t:絵> o<t:を> mite<t:見て> inai<t:いない> node<t:ので、> ‖ heta<t:下手> ka<t:か> doː<t:どう> ka<t:か> wa<t:は> iemasen<t:言えません。> ↘/"
+ }
+}

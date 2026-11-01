@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 4.556,
+ "output": {
+  "text": "角です。",
+  "ys": "ja /tsɯno<t:角> desɯ<t:です。> ↘/"
+ }
+}

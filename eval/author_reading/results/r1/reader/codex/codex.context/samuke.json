@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.184,
+ "output": {
+  "ys": "ja /samɯke<t:寒気> ɡa<t:が> sɯɾɯ<t:する> n<t:ん> da<t:だ。> ↘/"
+ }
+}

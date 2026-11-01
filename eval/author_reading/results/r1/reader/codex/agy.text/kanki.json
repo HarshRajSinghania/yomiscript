@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 8.072,
+ "output": {
+  "ys": "ja /kita<t:北> kaɾa<t:から> kaŋki<t:寒気> ɡa<t:が> naɡaɾekomɯ<t:流れ込む> kaɾa<t:から> desɯ<t:です。> ↘/"
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.075,
+ "output": {
+  "text": "生花を贈ります。",
+  "ys": "ja /seːka<t:生花> o<t:を> okɯɾimasɯ<t:贈ります。> ↘/"
+ }
+}

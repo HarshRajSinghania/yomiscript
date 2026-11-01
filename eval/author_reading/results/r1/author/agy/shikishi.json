@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 13.747,
+ "output": {
+  "text": "大きな色紙に書いて渡すのがおすすめです。",
+  "ys": "ja /oːkina<t:大きな> ɕikiɕi<t:色紙> ɲi<t:に> kaite<t:書いて> watasɯ<t:渡す> no<t:の> ɡa<t:が> osɯsɯme<t:おすすめ> desɯ<t:です。> ↘/"
+ }
+}

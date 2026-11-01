@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 4.955,
+ "output": {
+  "text": "最中です。",
+  "ys": "ja /monaka<t:最中> desɯ<t:です。> ↘/"
+ }
+}

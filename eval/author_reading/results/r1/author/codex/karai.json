@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 4.817,
+ "output": {
+  "text": "辛いです。",
+  "ys": "ja /kaɾai<t:辛い> desɯ<t:です。> ↘/"
+ }
+}

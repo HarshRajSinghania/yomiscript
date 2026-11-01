@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 4.638,
+ "output": {
+  "ys": "ja /minna<t:みんな> de<t:で> ɕikiɕi<t:色紙> ni<t:に> kaite<t:書いて> watasoː<t:渡そう。> ↘/"
+ }
+}

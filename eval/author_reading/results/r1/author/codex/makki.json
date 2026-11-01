@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.999,
+ "output": {
+  "text": "今の情報だけでは、末期かどうかは分かりません。",
+  "ys": "ja /ima<t:今> no<t:の> dʑoːhoː<t:情報> dake<t:だけ> dewa<t:では、> ‖ makki<t:末期> ka<t:か> doːka<t:どうか> wa<t:は> wakaɾimaseɴ<t:分かりません。> ↘/"
+ }
+}

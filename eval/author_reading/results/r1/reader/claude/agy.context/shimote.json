@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 8.253,
+ "output": {
+  "ys": "ja /hai<t:はい> ‖<t:、> kʲakɯseki<t:客席> kaɾa<t:から> mite<t:見て> çidaɾiɡawa<t:左側> no<t:の> ɕimote<t:下手> kaɾa<t:から> dete<t:出て> kɯɾɯ<t:くる> koto<t:こと> ɡa<t:が> oːi<t:多い> desɯ<t:です。> ↘/"
+ }
+}

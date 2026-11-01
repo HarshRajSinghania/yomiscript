@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.857,
+ "output": {
+  "text": "客席から見て右の上手から登場します。",
+  "ys": "ja /kʲakɯseki<t:客席> kaɾa<t:から> mite<t:見て> miɡi<t:右> no<t:の> kamite<t:上手> kaɾa<t:から> toːdʑoː<t:登場> ɕimasɯ<t:します。> ↘/"
+ }
+}

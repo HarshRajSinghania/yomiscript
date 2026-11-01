@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.41,
+ "output": {
+  "ys": "ja /totemo<t:とても> ɲiŋki<t:人気> no<t:の> omi se<t:お店> da<t:だ> kaɾa<t:から> desɯ<t:です。> ↘/"
+ }
+}

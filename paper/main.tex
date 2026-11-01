@@ -40,6 +40,9 @@ original front end of Kokoro-82M; on the 35 homograph sentences alone, 100\% and
 The newest commercial TTS models, which read the plain text themselves, misread the same words too: judged from their
 audio, Gemini~3.8 Flash TTS read 85.5\% of the judged sentences right, ElevenLabs~v3 75.3\% and OpenAI's
 gpt-4o-mini-tts 72.6\%, against 93.5\% and 90.3\% for the LLMs' YomiScript spoken by Kokoro under the same judge.
+In chat answers whose meaning depends on the conversation, the LLM that wrote the answer read its homograph right in
+98.0\% of 150 answers, an LLM given only the answer in about 92\%, and an LLM given the conversation too in 97--98\%:
+what the author has is the context, which it has in the same call at no extra cost.
 We describe a Katarite for Kokoro that reproduces the original Kokoro exactly when given its own front end's output,
 a second Katarite for a text-reading engine (Supertonic 3) that receives kana only for ambiguous words, and an
 optional original-text layer that lets the same YomiScript drive both and show the text being spoken. These are
@@ -80,6 +83,8 @@ Our contributions:
   original's own run-to-run variation (Section~\ref{sec:parity}).
   \item An evaluation of \textbf{LLMs as the Yomite} for Kokoro on Japanese and English, against the original front
   end and pyopenjtalk, on readings, faithfulness of the text layer, intelligibility and cost (Section~\ref{sec:results}).
+  \item An experiment that separates \textbf{authorship from context}: three LLMs (Claude, Codex, Gemini) as the author
+  of chat answers and as readers of each other's answers, with and without the conversation (Section~\ref{sec:author}).
   \item A comparison with the newest \textbf{commercial TTS} (OpenAI, Gemini, ElevenLabs) on the same sentences, judged
   from the audio by a kana speech recogniser on minimal pairs, and checked against recordings whose readings are known
   (Section~\ref{sec:commercial}).
@@ -216,6 +221,16 @@ understate a system's accuracy but did not overstate it. Two other judges were r
 transcripts, and a multilingual forced aligner over romanised letters (MMS), which agreed on 90.3\% and favoured the
 shorter candidate (a per-letter bonus tuned on the same recordings raised it, but could not be checked independently).
 
+\paragraph{Author or reader.} To separate authorship from context, we wrote 50 chat scenarios: 25 homographs (上手,
+人気, 生花, 風車, 最中, 心中 and others; not 一日, which the instructions use as an example), each with two user messages
+whose context fixes one reading, ending with ``answer in one line, using the word X''. Three LLMs through their CLIs
+with no tools, Claude Code (\texttt{claude-opus-5-5}), Codex (\texttt{gpt-6.1-sol}) and Antigravity
+(\texttt{gemini-4-argon-medium}), all given the YomiScript instructions our tools give, played three roles on the same
+answers: the \emph{author} answered the user and wrote its answer as YomiScript in the same call, as with a speak
+tool; a \emph{reader} (each of the three LLMs, in a new call) wrote YomiScript for the answer alone, or for the answer
+with the user's message. The word's reading was taken from the YomiScript through the text layer and compared with
+the scenario's reading; pyopenjtalk read the same answers. One run: 150 author calls and 900 reader calls.
+
 \section{Results}\label{sec:results}
 
 \subsection{The Kokoro Katarite reproduces the original}\label{sec:parity}
@@ -292,6 +307,37 @@ Agreement with Kokoro's own front end (Table~\ref{tab:paritysets}) is not a qual
 differences are the original's misreadings (清水寺 as \emph{shimizu-tera} for \emph{kiyomizu-dera}, 9時 as
 \emph{kyū-ji} for \emph{ku-ji}, iPhone left in Latin letters). In English the differences are mostly phonetic detail
 (stress placement, Kokoro's reduced-vowel symbols), which the model does hear; we leave English to listening tests.
+
+\subsection{The author's context}\label{sec:author}
+
+\begin{table}[t]
+\centering\small
+\caption{Homograph read right in 150 chat answers (50 scenarios $\times$ 3 authors), with a 95\% interval from
+resampling the answers. One run.}
+\label{tab:author}
+\begin{tabular}{lcccc}
+\toprule
+Who writes the YomiScript & all (150) & author Claude & author Codex & author Gemini\\
+\midrule
+The author, with its answer & \textbf{98.0\%} [95.3, 100] & 96.0\% & 100\% & 98.0\%\\
+Same LLM, given the answer only & 92.0\% [87.3, 96.0] & 94.0\% & 88.0\% & 94.0\%\\
+Same LLM, given the user's message too & \textbf{98.0\%} [95.3, 100] & 96.0\% & 98.0\% & 100\%\\
+Another LLM, given the answer only & 91.7\% [87.7, 95.3] & 94.0\% & 89.0\% & 92.0\%\\
+Another LLM, given the user's message too & 97.0\% [94.7, 99.0] & 98.0\% & 98.0\% & 95.0\%\\
+pyopenjtalk & 56.0\% [48.0, 64.0] & & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All 150 answers contained the word. The author read it right more often than an LLM given only its answer
+(Table~\ref{tab:author}): on the same answers, 10 where the author was right and the same LLM as a reader was not, 1
+the other way (exact McNemar, $p = 0.012$). Given the user's message as well, the reader matched the author (1 and 1,
+$p = 1$), and no reader LLM differed significantly from another. The readers' errors were on answers too short to fix
+the reading: 「それは生花です。」 (\emph{ikebana}) was misread in all nine reader calls, and 「風車ですね。」
+(\emph{kazaguruma}), 「角です。」 (\emph{tsuno}) and 「辛いです。」 (\emph{tsurai}) in several. The authors often repeated the
+context in the answer although asked for one line (「客席から見て右側の上手から登場します。」), which let a reader of the
+answer alone get it right; with terser answers the gap would be larger. The remaining errors, in every condition, were
+the LLMs' own (末期 as \emph{matsuki}) or notation that did not line up with the text.
 
 \subsection{Commercial TTS on the same sentences}\label{sec:commercial}
 
@@ -381,7 +427,11 @@ is the problem this work avoids.
 \section{Discussion}
 
 \paragraph{Why it works.} The author of the text has the context, and in an LLM application the author is a model that
-can also write IPA. A dictionary front end must guess; the author does not.
+can also write IPA. A dictionary front end must guess; the author does not. Section~\ref{sec:author} makes this
+precise: authorship as such added nothing over another LLM given the same conversation, but a reader given only the
+text lost about six points, all on answers too short to fix the reading. The title's claim is therefore about where
+the context is: the author has it in the same call, while a separate front end has it only if the conversation is
+passed along, at the cost of another call over the whole conversation.
 
 \paragraph{What it buys for the browser.} No front end ships: the browser needs only the Katarite (Kokoro with fp16
 weights, 163\,MB plus a 0.5\,MB voice; Supertonic~3, 385\,MB). Compared with shipping OpenJTalk (piper-plus: about
@@ -414,7 +464,11 @@ The following weaken the claims above, and Section~\ref{sec:results} should be r
   Codex call returned malformed JSON and was repeated.
   \item \textbf{Prompt revisions.} The prompt was revised twice after seeing results, for notation; the reading
   instruction did not change, but the revision was informed by the test sets.
-  \item \textbf{Two frontier LLMs only.} Smaller or local models, which an MCP server will also meet, were not tested.
+  \item \textbf{Frontier LLMs only.} Two on the hard set and three in Section~\ref{sec:author}; smaller or local models,
+  which an MCP server will also meet, were not tested.
+  \item \textbf{The author experiment (weakens Table~\ref{tab:author}).} One run, 50 scenarios written by the project
+  with unreviewed right readings; the scenarios ask for the word and a short answer, which makes the case where the
+  context matters more common than in free conversation.
   \item \textbf{Intelligibility is a proxy (weakens Table~\ref{tab:asr}).} ASR transcripts, read back with pyopenjtalk,
   carry both systems' errors; naturalness was not measured.
   \item \textbf{Baselines.} pyopenjtalk stands in for piper-plus; context-aware Japanese G2P models were not compared.
@@ -427,7 +481,8 @@ The following weaken the claims above, and Section~\ref{sec:results} should be r
 When an LLM speaks, it can also say how its words are read. Writing that reading in a language-neutral notation lets a
 small synthesizer in the browser speak Japanese homographs, numbers, dates and acronyms that dictionary front ends
 misread, with the reading decided by the one component that knows what was meant. The newest commercial TTS models,
-which read the text themselves, still misread 15--27\% of the same sentences. Our preliminary results are strong
+which read the text themselves, still misread 15--27\% of the same sentences. What makes the author's reading right is
+the context it already has; another LLM matches it only when given the conversation as well. Our preliminary results are strong
 but small; the next step is an independent, larger evaluation with human listening tests.
 
 \bibliographystyle{plainnat}

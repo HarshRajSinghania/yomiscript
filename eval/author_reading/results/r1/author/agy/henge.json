@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 8.732,
+ "output": {
+  "text": "人間などに姿を変える、変化の術を使います。",
+  "ys": "ja /ɲiŋɡeɴ<t:人間> nado<t:など> ɲi<t:に> sɯɡata<t:姿> o<t:を> kaeɾɯ<t:変える> ‖<t:、> heŋɡe<t:変化> no<t:の> dʑɯtsɯ<t:術> o<t:を> tsɯkaimasɯ<t:使います。> ↘/"
+ }
+}

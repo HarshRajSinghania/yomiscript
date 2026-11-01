@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.482,
+ "output": {
+  "text": "大人には、状況に応じた適切な分別が求められます。",
+  "ys": "ja /otona<t:大人> ɲi<t:に> wa<t:は> ‖<t:、> dʑoːkʲoː<t:状況> ɲi<t:に> oːdʑita<t:応じた> tekisetsɯ<t:適切> na<t:な> ɸɯmbetsɯ<t:分別> ɡa<t:が> motomeɾaɾemasɯ<t:求められます。> ↘/"
+ }
+}

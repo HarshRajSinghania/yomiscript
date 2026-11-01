@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 14.958,
+ "output": {
+  "text": "カラフルな色紙を買えば楽しく作れますよ。",
+  "ys": "ja /kaɾaɸɯɾɯ<t:カラフル> na<t:な> iɾoɡami<t:色紙> o<t:を> kaeba<t:買えば> tanoɕikɯ<t:楽しく> tsɯkɯɾemasɯ<t:作れます> jo<t:よ。> ↘/"
+ }
+}

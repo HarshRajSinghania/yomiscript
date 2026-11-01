@@ -1,0 +1,8 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 7.378,
+ "output": {
+  "ys": "ja /osaɕimi<t:お刺身> wa<t:は> namamono<t:生物> nanode<t:なので> ‖<t:、> naɲɲitɕi<t:何日> mo<t:も> okadzɯ<t:置かず> ɲi<t:に> kʲoːdʑɯː<t:今日中> ɲi<t:に> tabete<t:食べて> kɯdasai<t:ください。> ↘/"
+ }
+}

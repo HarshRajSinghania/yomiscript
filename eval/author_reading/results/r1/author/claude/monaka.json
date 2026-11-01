@@ -1,0 +1,9 @@
+{
+ "llm": "claude",
+ "model": "claude-opus-5-5",
+ "seconds": 4.716,
+ "output": {
+  "text": "それは最中です。",
+  "ys": "ja /soɾe<t:それ> wa<t:は> monaka<t:最中> desɯ<t:です。> ↘/"
+ }
+}

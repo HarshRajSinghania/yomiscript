@@ -1,0 +1,9 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 6.355,
+ "output": {
+  "text": "朝の魚市場へ行くといいですよ。",
+  "ys": "ja /asa<t:朝> no<t:の> ɯoitɕiba<t:魚市場> e<t:へ> ikɯ<t:行く> to<t:と> iː<t:いい> desɯ<t:です> jo<t:よ。> ↘/"
+ }
+}

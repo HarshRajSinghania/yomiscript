@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 13.598,
+ "output": {
+  "text": "末期の水です。",
+  "ys": "ja /matsɯɡo<t:末期> no<t:の> midzɯ<t:水> desɯ<t:です。> ↘/"
+ }
+}

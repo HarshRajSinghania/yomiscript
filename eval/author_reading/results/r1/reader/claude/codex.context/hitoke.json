@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.464,
+ "output": {
+  "ys": "ja /jonaka<t:夜中> no<t:の> koːen<t:公園> wa<t:は、> ‖ çitoke<t:人気> ɡa<t:が> nai<t:ない> koto<t:こと> ɡa<t:が> oːi<t:多い> desɯ<t:です。> ↘/"
+ }
+}

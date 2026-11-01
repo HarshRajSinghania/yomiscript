@@ -1,0 +1,9 @@
+{
+ "llm": "agy",
+ "model": "gemini-4-argon-medium",
+ "seconds": 19.847,
+ "output": {
+  "text": "それは最中です。",
+  "ys": "ja /soɾe<t:それ> wa<t:は> monaka<t:最中> desɯ<t:です。> ↘/"
+ }
+}

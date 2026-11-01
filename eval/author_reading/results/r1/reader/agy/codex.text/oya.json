@@ -1,0 +1,8 @@
+{
+ "llm": "codex",
+ "model": "gpt-6.1-sol",
+ "seconds": 5.352,
+ "output": {
+  "ys": "ja /apaːto<t:アパート> no<t:の> jatɕin<t:家賃> wa<t:は> ‖<t:、> oːja<t:大家> san<t:さん> ɲi<t:に> haɾaimasɯ<t:払います。> ↘/"
+ }
+}
