@@ -1,6 +1,6 @@
 {
   "name": "@yomiscript/kokoro",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Kokoro-82M Katarite: YomiScript -> Kokoro input -> audio (onnxruntime-web w16 in the browser, onnxruntime-node fp32 in Node)",
   "license": "Apache-2.0",
   "repository": {
@@ -35,7 +35,7 @@
     "prepack": "yarn --cwd ../.. build && node ../../tools/prepack.mjs"
   },
   "dependencies": {
-    "@yomiscript/core": "^0.1.0",
+    "@yomiscript/core": "^0.1.2",
     "onnxruntime-common": "1.22.0"
   },
   "peerDependencies": {

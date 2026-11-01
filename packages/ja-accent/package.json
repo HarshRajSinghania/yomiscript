@@ -1,6 +1,6 @@
 {
   "name": "@yomiscript/ja-accent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Japanese dictionary accent for YomiScript: OpenJTalk's front end (jpreprocess, NAIST-JDIC) as WebAssembly marks the accent phrases whose reading it shares",
   "license": "Apache-2.0",
   "repository": {
@@ -38,6 +38,6 @@
     "prepack": "yarn --cwd ../.. build && node ../../tools/prepack.mjs"
   },
   "dependencies": {
-    "@yomiscript/core": "^0.1.1"
+    "@yomiscript/core": "^0.1.2"
   }
 }
