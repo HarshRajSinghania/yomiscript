@@ -26,27 +26,31 @@ LLM-Written Pronunciation for Small Browser Text-to-Speech, with Japanese Homogr
 \maketitle
 
 \begin{abstract}
-Text-to-speech (TTS) front ends choose a reading for every word before any audio is made, and in Japanese that choice
-is often ambiguous: the same written form has several readings (homographs such as 一日, 上手, 人気), numbers and dates
-change their sound with the counter, and Latin-script words must be rendered in Japanese phonology. Dictionary-based
-front ends such as OpenJTalk pick the most frequent reading and do not look at context. We observe that when speech is
-produced for a large language model (LLM), the LLM that wrote the sentence already knows which reading it meant. We
-let that LLM write the pronunciation itself, in YomiScript, an IPA-based, language-neutral notation that separates the
+Text-to-speech (TTS) must decide how every word is read before it makes a sound, and in Japanese that choice is often
+ambiguous: the same written form has several readings (homographs such as 一日, 上手, 人気), numbers and dates change
+their sound with the counter, and Latin-script words must be rendered in Japanese phonology. Dictionary front ends
+such as OpenJTalk pick one reading per written form without looking at the context. Recent work brings language models
+into the front end: pre-trained language models for Japanese polyphone disambiguation and
+accent, an LLM that picks the meaning of English homographs while a dictionary gives the pronunciation, LLM text
+normalisation of numbers and abbreviations, and LLM grapheme-to-phoneme conversion that gives Japanese kana to a
+kana-input TTS. All of them read the text after it was written, as a separate model, and hand the result to one TTS in
+that TTS's input form. We let the LLM that writes the text also write its pronunciation, in the same call, while it
+still has the context, in YomiScript: a notation for TTS built on existing international standards, IPA and BCP~47,
+that gives the resolved pronunciation of every word independently of any engine and language. It separates the
 \emph{Yomite} (who decides how text is read) from the \emph{Katarite} (the synthesizer that turns the resolved
-pronunciation into sound). The TTS then needs no front end of its own: only a small acoustic model, which runs in a
-web browser. On a 70-sentence hard set of Japanese homographs, acronyms, numbers and dates, LLM-written YomiScript was
-read correctly in 100\% (Codex) and 98.6\% (Claude) of sentences, against 78.6\% for pyopenjtalk and 32.9\% for the
+pronunciation into sound), so the TTS needs no front end of its own: only a small acoustic model, which runs in a web
+browser. On a 70-sentence hard set of Japanese homographs, acronyms, numbers and dates, LLM-written YomiScript was read
+correctly in 100\% (Codex) and 98.6\% (Claude) of sentences, against 78.6\% for pyopenjtalk and 32.9\% for the
 original front end of Kokoro-82M; on the 35 homograph sentences alone, 100\% and 97.1\% against 60.0\% and 51.4\%.
-The newest commercial TTS models, which read the plain text themselves, misread the same words too: judged from their
-audio, Gemini~3.8 Flash TTS read 85.5\% of the judged sentences right, ElevenLabs~v3 75.3\% and OpenAI's
-gpt-4o-mini-tts 72.6\%, against 93.5\% and 90.3\% for the LLMs' YomiScript spoken by Kokoro under the same judge.
-In chat answers whose meaning depends on the conversation, the LLM that wrote the answer read its homograph right in
-98.0\% of 150 answers, an LLM given only the answer in about 92\%, and an LLM given the conversation too in 97--98\%:
-what the author has is the context, which it has in the same call at no extra cost.
-We describe a Katarite for Kokoro that reproduces the original Kokoro exactly when given its own front end's output,
-a second Katarite for a text-reading engine (Supertonic 3) that receives kana only for ambiguous words, and an
-optional original-text layer that lets the same YomiScript drive both and show the text being spoken. These are
-preliminary results with provisional gold readings, small sets and one run per LLM; we list what is needed to confirm them.
+The newest commercial TTS models misread the same words too: judged from their audio, Gemini~3.8 Flash TTS read
+85.5\% of the judged sentences right, ElevenLabs~v3 75.3\% and OpenAI's gpt-4o-mini-tts 72.6\%, against 93.5\% and
+90.3\% for the LLMs' YomiScript spoken by Kokoro under the same judge. In chat answers whose meaning depends on the
+conversation, the LLM that wrote the answer read its homograph right in 98.0\% of 150 answers, an LLM given only the
+answer in about 92\%, and an LLM given the conversation too in 97--98\%: what the author has is the context, which it
+has in the same call at no extra cost. We describe a Katarite for Kokoro that reproduces the original Kokoro exactly
+when given its own front end's output, a second Katarite for a text-reading engine (Supertonic 3), and an optional
+original-text layer that lets the same YomiScript drive both and show the text being spoken. These are preliminary
+results with provisional gold readings, small sets and few runs; we list what is needed to confirm them.
 \end{abstract}
 
 \section{Introduction}
@@ -74,7 +78,8 @@ sound, which a small acoustic model can do in the browser.
 
 Our contributions:
 \begin{itemize}
-  \item \textbf{YomiScript}, a pronunciation notation in IPA~\citep{ipa1999handbook} with accent, stress and tone
+  \item \textbf{YomiScript}, a notation for TTS built on existing international standards, IPA~\citep{ipa1999handbook}
+  and BCP~47~\citep{rfc5646}, with accent, stress and tone
   marks, phrase boundaries, optional pitch values and an optional original-text layer, which separates the
   \emph{Yomite} (text to YomiScript: an LLM, rules, a dedicated model or a person) from the \emph{Katarite}
   (YomiScript to sound) (Section~\ref{sec:yomiscript}).
@@ -112,9 +117,24 @@ error rate by 28.9\% relative~\citep{han2024ickr}. PolyNorm normalises text for 
 the word error rate against a production system in eight languages~\citep{wong2025polynorm}. Closest to us,
 \citet{koriyama2026g2p} benchmarks over 30 LLMs on Japanese G2P (3{,}000 hand-annotated sentences): the best reach a
 kana character error rate below 0.52\%, against 1.03\% for the best conventional tool, and kana predicted by an LLM and
-given to a kana-input TTS is pronounced more accurately than an end-to-end TTS reading the text. We differ in who does
-it: not a separate model reading someone else's text, but the author of the text, which writes the reading in the same
-call as the text.
+given to a kana-input TTS is pronounced more accurately than an end-to-end TTS reading the text. We differ from these
+works in three ways. (1) \emph{Who reads}: they add a model that reads the text after it was written; here the LLM that
+writes the text writes its reading in the same call, while it has the context. A separate reader loses that context
+unless the conversation is passed to it as well (Section~\ref{sec:author}: 92\% against 98\% when it is not).
+(2) \emph{What is handed over}: they produce one TTS's input (kana for a kana-input TTS, normalised text, dictionary
+phonemes for an English front end); YomiScript is a notation built on IPA and BCP~47 that any engine can read, in any
+language. (3) \emph{What the TTS keeps}: their TTS still has a front end; a Katarite has none, which is what lets it
+run in a browser.
+
+\paragraph{Pronunciation markup.} SSML~\citep{ssml11}, the W3C markup for speech synthesis, wraps text in elements
+that adjust how it is spoken; its \texttt{phoneme} element gives the pronunciation of a word, in IPA among other
+alphabets, and the engine's front end reads everything else. YomiScript inverts this: the pronunciation of the whole
+utterance is the content, every word resolved, and the original text is an optional annotation of it. It keeps the
+symbols IPA already has with their IPA meaning (stress, length, the major and minor group boundaries \ys{‖}
+and \ys{|}, downstep \ys{ꜜ} and upstep \ys{ꜛ}, the global fall and rise \ys{↘}/\ys{↗}, tone letters), names the
+language with a BCP~47 tag~\citep{rfc5646}, and adds only what TTS needs and IPA lacks: utterance framing, pitch
+values and the text layer. A Katarite therefore needs no text analysis, and the same YomiScript can drive engines
+with different phoneme sets.
 
 \paragraph{Small and browser TTS.} Kokoro-82M~\citep{kokoro82m} is a StyleTTS~2-style~\citep{li2023styletts2} model with
 an iSTFTNet~\citep{kaneko2022istftnet} decoder that takes phonemes. Piper~\citep{piper}, based on VITS~\citep{kim2021vits},
@@ -132,7 +152,9 @@ reading is decided inside the TTS, by a dictionary front end or by the acoustic 
 narrator) turns YomiScript into sound. Lexicons and reading hints are inputs to the Yomite and are not part of
 YomiScript, which holds only resolved pronunciation.
 
-\paragraph{Notation.} An utterance is a BCP~47 language tag and the pronunciation between slashes, ending in a fall
+\paragraph{Notation.} YomiScript is built on IPA~\citep{ipa1999handbook} and BCP~47~\citep{rfc5646}: symbols that IPA
+already has keep their IPA meaning, and only conventions TTS needs and IPA lacks are added. An utterance is a BCP~47
+language tag and the pronunciation between slashes, ending in a fall
 (\ys{↘}) or rise (\ys{↗}). Every language is written in IPA, Japanese included, mora by mora, with \ys{ꜛ} after the
 mora where the pitch rises and \ys{ꜜ} after the accent nucleus; English uses \ys{ˈ}/\ys{ˌ}. \ys{|} is an accent-phrase
 boundary and \ys{‖} a breath group with a pause. Optional pitch values \ys{<f0:v>} give a target in semitones relative
@@ -482,7 +504,8 @@ When an LLM speaks, it can also say how its words are read. Writing that reading
 small synthesizer in the browser speak Japanese homographs, numbers, dates and acronyms that dictionary front ends
 misread, with the reading decided by the one component that knows what was meant. The newest commercial TTS models,
 which read the text themselves, still misread 15--27\% of the same sentences. What makes the author's reading right is
-the context it already has; another LLM matches it only when given the conversation as well. Our preliminary results are strong
+the context it already has; another LLM matches it only when given the conversation as well. Our preliminary results
+are strong
 but small; the next step is an independent, larger evaluation with human listening tests.
 
 \bibliographystyle{plainnat}
