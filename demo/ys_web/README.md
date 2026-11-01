@@ -14,6 +14,7 @@ a link to `packages/`, through an import map):
 - `quant.py`: size reduction. `python quant.py w16` creates a version with only the weights stored in fp16 (compute stays fp32) at `models_q/*_w16.onnx` (used by default, about 163 MB total). `i8` is an int8 trial for the decoder
 - `serve.py`: local server with COOP/COEP headers (required for WASM multithreading)
 - `qeval.py`: quality comparison against fp32 (pyin F0 correlation, mel difference). `drift.py`: per-segment comparison of torch, Python ONNX and JS
+- `web/misread.html`: hear the misreadings. The hard-set sentences the original Kokoro misreads, each as the original speaks it (recorded) and as the Katarite speaks the LLM's YomiScript, generated in the browser with its time shown. `misread.mjs` writes its data (`web/misread.json`, `web/misread/*.wav`; after `eval/browser_tts`); `?local` uses this repository's packages and models, otherwise the published packages (jsDelivr) and the models on Hugging Face. `misread_site.sh` puts it in a folder for a static host (Cloudflare Pages), about 7 MB
 - `node.mjs`: the Katarite package in Node with onnxruntime-web, reading `web/models` and `web/voices`; used by the Yomites and `eval/`
 - `f0_override.py`: Python copy of `f0Override` for the ONNX check scripts below
 - `pw_test.mjs` / `pw_bench.mjs` / `ort_check.py`: tests and speed measurement in Playwright and Python (from an earlier stage; `drift.py` and `ort_check.py` need reference files that are not in the repository)
