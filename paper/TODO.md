@@ -26,4 +26,8 @@ Each item says what it would show. In rough order of importance.
    phonetic-detail differences from Kokoro's front end are audible. Shows whether the result carries over beyond Japanese.
 10. **Accent from the Yomite.** Optionally let the LLM write accent marks and turn them into pitch values for Kokoro
     (`<f0:…>`), compared with Kokoro's own prosody. Tests whether Japanese pitch accent, not only readings, improves.
-11. **Bibliography.** Resolve the entries marked TODO verify in `references.bib` and the LLM-G2P citation in Related work.
+11. **Bibliography.** Resolve the entries marked TODO verify in `references.bib` (the LLM-G2P works in Related work are
+    checked).
+12. **Confirm the commercial misreadings by ear.** Listen to every word the judge marked misread or close
+    (`eval/tts_readings/results/review.md`) and correct Table `tab:commercial`; check the judge on commercial speech, not
+    only on Kokoro's. Add more voices per service.

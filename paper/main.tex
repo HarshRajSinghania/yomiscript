@@ -37,6 +37,9 @@ pronunciation into sound). The TTS then needs no front end of its own: only a sm
 web browser. On a 70-sentence hard set of Japanese homographs, acronyms, numbers and dates, LLM-written YomiScript was
 read correctly in 100\% (Codex) and 98.6\% (Claude) of sentences, against 78.6\% for pyopenjtalk and 32.9\% for the
 original front end of Kokoro-82M; on the 35 homograph sentences alone, 100\% and 97.1\% against 60.0\% and 51.4\%.
+The newest commercial TTS models, which read the plain text themselves, misread the same words too: judged from their
+audio, Gemini~3.8 Flash TTS read 85.5\% of the judged sentences right, ElevenLabs~v3 75.3\% and OpenAI's
+gpt-4o-mini-tts 72.6\%, against 93.5\% and 90.3\% for the LLMs' YomiScript spoken by Kokoro under the same judge.
 We describe a Katarite for Kokoro that reproduces the original Kokoro exactly when given its own front end's output,
 a second Katarite for a text-reading engine (Supertonic 3) that receives kana only for ambiguous words, and an
 optional original-text layer that lets the same YomiScript drive both and show the text being spoken. These are
@@ -77,6 +80,9 @@ Our contributions:
   original's own run-to-run variation (Section~\ref{sec:parity}).
   \item An evaluation of \textbf{LLMs as the Yomite} for Kokoro on Japanese and English, against the original front
   end and pyopenjtalk, on readings, faithfulness of the text layer, intelligibility and cost (Section~\ref{sec:results}).
+  \item A comparison with the newest \textbf{commercial TTS} (OpenAI, Gemini, ElevenLabs) on the same sentences, judged
+  from the audio by a kana speech recogniser on minimal pairs, and checked against recordings whose readings are known
+  (Section~\ref{sec:commercial}).
   \item A \textbf{second Katarite} for an engine that reads characters rather than IPA (Supertonic~3~\citep{supertonic3}),
   which uses the text layer and gives kana only for words whose written form is ambiguous.
 \end{itemize}
@@ -93,9 +99,17 @@ or a model trained on dictionary output; none is given the writer's intent.
 \paragraph{Neural G2P, homographs and text normalisation.} Multilingual neural G2P such as ByT5-based
 models~\citep{zhu2022byt5g2p} learns pronunciations from lexicons. Homograph disambiguation with contextual
 embeddings has been studied for English TTS~\citep{nicolis2021homograph}, and text normalisation (numbers, dates,
-symbols into words) is a long-standing hard problem~\citep{sproat2016normalization}. LLMs have been tried for G2P and
-normalisation \todo{cite LLM-based G2P and normalisation work, e.g. benchmarks of LLM G2P; verify}. We differ in who
-does it: not a separate model reading someone else's text, but the author of the text.
+symbols into words) is a long-standing hard problem~\citep{sproat2016normalization}. For Japanese, features from
+pre-trained language models (BERT, Flair) added to morphological analysis improved polyphone disambiguation and accent
+prediction by 5.7 and 6.0 points~\citep{hida2022polyphone}. LLMs have since been used in the front end directly. For
+English homographs, an LLM that picks the meaning while the pronunciation comes from a dictionary reduced the phoneme
+error rate by 28.9\% relative~\citep{han2024ickr}. PolyNorm normalises text for TTS with few-shot prompting and reduces
+the word error rate against a production system in eight languages~\citep{wong2025polynorm}. Closest to us,
+\citet{koriyama2026g2p} benchmarks over 30 LLMs on Japanese G2P (3{,}000 hand-annotated sentences): the best reach a
+kana character error rate below 0.52\%, against 1.03\% for the best conventional tool, and kana predicted by an LLM and
+given to a kana-input TTS is pronounced more accurately than an end-to-end TTS reading the text. We differ in who does
+it: not a separate model reading someone else's text, but the author of the text, which writes the reading in the same
+call as the text.
 
 \paragraph{Small and browser TTS.} Kokoro-82M~\citep{kokoro82m} is a StyleTTS~2-style~\citep{li2023styletts2} model with
 an iSTFTNet~\citep{kaneko2022istftnet} decoder that takes phonemes. Piper~\citep{piper}, based on VITS~\citep{kim2021vits},
@@ -180,6 +194,28 @@ flap). Intelligibility is measured by transcribing the audio with Whisper large-
 converting the transcript to katakana with pyopenjtalk, and computing the kana error rate against what the system was
 meant to say (English: word error rate against the text).
 
+\paragraph{Commercial TTS.} The newest TTS model of each of three services read the plain text of the hard set, three
+times each, since they do not always read a sentence the same way: OpenAI \texttt{gpt-4o-mini-tts} (snapshot
+2025-12-15, voice coral), Google \texttt{gemini-3.8-flash-tts} (voice Kore) and ElevenLabs \texttt{eleven\_v3}, with
+ElevenLabs' previous \texttt{eleven\_multilingual\_v2} for comparison (voice Rachel), all on 31 October 2026. Their
+readings can only be judged from the audio, and so are ours here: the LLMs' YomiScript went through the tools' pipeline
+(the dictionary accent, then Kokoro), and Kokoro's original pipeline read the plain text, one run each.
+
+\paragraph{Judging a reading from audio.} Whisper is not a usable judge of readings: it writes most of what it hears in
+kanji and digits, even when prompted in kana, and its language model leans to the expected words, so a misread 一日
+is transcribed as 一日 again. We use a speech recogniser that outputs hiragana and has no language model (wav2vec~2.0
+XLSR-53 fine-tuned on Japanese, \texttt{vumichien/wav2vec2-large-xlsr-japanese-hiragana}) on minimal pairs. For each
+of 69 target words in 62 of the 70 sentences, we list the right readings and the plausible misreadings (一日:
+\emph{tsuitachi} vs \emph{ichinichi}); each candidate is the gold reading of the sentence with only that word changed,
+and the candidate with the highest CTC likelihood is the reading heard. A sentence is read right when all its target
+words are. The other eight sentences are not judged, since every plausible reading of them counts as right (今日 in
+今日の日本経済, 紅葉, SIP, NHK, and plain numbers). We checked the judge on the recordings whose spoken phonemes we
+know (the original Kokoro, and the LLMs' YomiScript through Kokoro): it agrees with the known reading on 193 of 207
+words (93.2\%). All 14 disagreements are right readings judged as misreadings, all in Kokoro's audio; the judge can
+understate a system's accuracy but did not overstate it. Two other judges were rejected on the same check: Whisper's
+transcripts, and a multilingual forced aligner over romanised letters (MMS), which agreed on 90.3\% and favoured the
+shorter candidate (a per-letter bonus tuned on the same recordings raised it, but could not be checked independently).
+
 \section{Results}\label{sec:results}
 
 \subsection{The Kokoro Katarite reproduces the original}\label{sec:parity}
@@ -257,6 +293,44 @@ differences are the original's misreadings (清水寺 as \emph{shimizu-tera} for
 \emph{kyū-ji} for \emph{ku-ji}, iPhone left in Latin letters). In English the differences are mostly phonetic detail
 (stress placement, Kokoro's reduced-vowel symbols), which the model does hear; we leave English to listening tests.
 
+\subsection{Commercial TTS on the same sentences}\label{sec:commercial}
+
+\begin{table}[t]
+\centering\small
+\caption{Sentences of the hard set read right, judged from the audio (Section~\ref{sec:setup}); 62 sentences with 69
+judged words (gold\provisional). Mean over runs, with a 95\% interval from resampling the sentences (10{,}000 times).
+The last two columns count the sentences misread in every run and in at least one.}
+\label{tab:commercial}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccccc}
+\toprule
+System (runs) & all (62) & homograph (33) & acronym (10) & number (8) & date (11) & every & any\\
+\midrule
+Claude YomiScript $\to$ Kokoro (1) & 93.5\% [87.1, 98.4] & 93.9\% & 100\% & 100\% & 81.8\% & 4 & 4\\
+Codex YomiScript $\to$ Kokoro (1) & 90.3\% [82.3, 96.8] & 93.9\% & 100\% & 75.0\% & 81.8\% & 6 & 6\\
+Gemini 3.8 Flash TTS (3) & 85.5\% [76.9, 93.0] & 87.9\% & 100\% & 75.0\% & 72.7\% & 6 & 12\\
+ElevenLabs v3 (3) & 75.3\% [65.1, 84.9] & 65.7\% & 93.3\% & 66.7\% & 93.9\% & 11 & 19\\
+OpenAI gpt-4o-mini-tts (3) & 72.6\% [62.9, 81.7] & 69.7\% & 100\% & 70.8\% & 57.6\% & 8 & 25\\
+ElevenLabs multilingual v2 (3) & 60.2\% [48.9, 71.0] & 49.5\% & 96.7\% & 58.3\% & 60.6\% & 20 & 30\\
+Kokoro, original front end (1) & 30.6\% [19.4, 41.9] & 51.5\% & 0\% & 25.0\% & 0\% & 43 & 43\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Commercial TTS, which reads the text with its own model, misread the same kind of words (Table~\ref{tab:commercial}).
+Gemini was the most accurate of the three services, and ElevenLabs' newest model improved clearly on its previous one;
+none reached the LLMs' YomiScript, although the judge errs only against Kokoro's audio. The words misread most often
+were homographs whose rarer reading the context requires: 上手 as \emph{kamite} or \emph{uwate}, 人気 as \emph{hitoke},
+一日 as \emph{tsuitachi}, 市 as \emph{ichi}, 目下 as \emph{mokka}, 色紙 as \emph{irogami}, 生物 as \emph{namamono},
+and dates (二十日 \emph{hatsuka}, 八日 \emph{yōka}). Acronyms, which Kokoro's original front end drops, were read right
+by nearly all of them. The services also varied between runs: OpenAI misread 8 sentences in every run but 25 in at
+least one, so a reading that is right once may not be right the next time the same text is spoken.
+
+Leaving out the eight words the judge misjudged on known readings (Section~\ref{sec:setup}), which leaves 55 sentences,
+the services score 93.3\% (Gemini), 80.6\% (ElevenLabs v3), 77.0\% (OpenAI) and 64.8\% (ElevenLabs v2). The LLMs'
+YomiScript scores 100\% there, but only by construction, since the words left out are those the judge misheard in
+Kokoro's audio; for the LLMs, the reading they wrote (Table~\ref{tab:hard}) is the better measure.
+
 \subsection{Text layer and cost}
 
 Joining the \ys{<t:…>} values gave back the input exactly (whitespace ignored) in all 232 outputs (2 LLMs $\times$ 116
@@ -329,7 +403,13 @@ The following weaken the claims above, and Section~\ref{sec:results} should be r
   the project, marked provisional and not reviewed by independent annotators; LLM assistance in writing them cannot be
   ruled out, which could favour the LLMs. Several items admit two readings.
   \item \textbf{Small sets (weakens all tables).} 35 homograph sentences and 70 hard sentences; one wrong answer moves
-  the homograph score by 2.9 points. No confidence intervals are reported.
+  the homograph score by 2.9 points. Only Table~\ref{tab:commercial} reports confidence intervals, and they are wide.
+  \item \textbf{The judge of Table~\ref{tab:commercial}.} It was checked on Kokoro's audio only, where it erred against
+  the right reading on 14 of 207 words; its errors on natural commercial speech are not measured, and the misreadings it
+  found have not yet been confirmed by listening. The target words and their misreadings were listed by the project,
+  partly from the misreadings the systems produced.
+  \item \textbf{Commercial services.} One voice per service and one date; the readings may differ by voice, and the
+  services change their models without notice (we pinned OpenAI's snapshot; the others have no snapshot).
   \item \textbf{One run per LLM (weakens Tables~\ref{tab:hard}--\ref{tab:asr}).} LLM outputs vary between calls; one
   Codex call returned malformed JSON and was repeated.
   \item \textbf{Prompt revisions.} The prompt was revised twice after seeing results, for notation; the reading
@@ -346,7 +426,8 @@ The following weaken the claims above, and Section~\ref{sec:results} should be r
 
 When an LLM speaks, it can also say how its words are read. Writing that reading in a language-neutral notation lets a
 small synthesizer in the browser speak Japanese homographs, numbers, dates and acronyms that dictionary front ends
-misread, with the reading decided by the one component that knows what was meant. Our preliminary results are strong
+misread, with the reading decided by the one component that knows what was meant. The newest commercial TTS models,
+which read the text themselves, still misread 15--27\% of the same sentences. Our preliminary results are strong
 but small; the next step is an independent, larger evaluation with human listening tests.
 
 \bibliographystyle{plainnat}
