@@ -1,5 +1,5 @@
 // The rule Yomite on the accent phrases that carry marks, and only those (markedOnly), and at a given strength
-// (jaScale): what the tools run after the dictionary accent (@yomiscript/ja-accent, D25; the values, D28).
+// (jaScale): what the tools run after the dictionary accent (@yomiscript/ja-accent, D25; the values, D28, D29).
 import { describe, expect, it } from "vitest";
 import { realize } from "../src/index.ts";
 
@@ -13,14 +13,14 @@ describe("realize with markedOnly", () => {
   });
   it("writes values for the marked phrase only, without devoicing", () => {
     expect(only("ja /kʲoꜜː<t:今日> wa<t:は> | sɯki<t:好き> desɯ<t:です。> ↘/")).toBe(
-      "ja /kʲo<f0:2.86,3.67,4.17>ꜜː<f0:3.86,3.09,1.76><t:今日> wa<f0:-0.72,-2.46,-3.79><t:は> | sɯki<t:好き> desɯ<t:です。> ↘/",
+      "ja /kʲo<f0:1.28,2.37,3.46>ꜜː<f0:3.27,2.98,0.45><t:今日> wa<f0:-0.35,-3.04,-4.51><t:は> | sɯki<t:好き> desɯ<t:です。> ↘/",
     );
     expect(only("ja /aꜛme<t:飴> ɡa<t:が> | sɯki<t:好き> ↘/")).toBe(
-      "ja /a<f0:0.07,0.05,0>ꜛme<f0:2.67,3.04,2.95><t:飴> ɡa<f0:0.9,0.4,0><t:が> | sɯki<t:好き> ↘/",
+      "ja /a<f0:-4.35,-4.59,-4.69>ꜛme<f0:-2.98,-1.84,-1.78><t:飴> ɡa<f0:0.23,0,-1.17><t:が> | sɯki<t:好き> ↘/",
     );
   });
   it("keeps values already written", () => {
-    expect(only("ja /kʲo<f0:3>ꜜː<t:今日> wa<t:は> ↘/")).toBe("ja /kʲo<f0:3>ꜜː<f0:0.95,0,-1.34><t:今日> wa<f0:-4.48,-5.4,-5.64><t:は> ↘/");
+    expect(only("ja /kʲo<f0:3>ꜜː<t:今日> wa<t:は> ↘/")).toBe("ja /kʲo<f0:3>ꜜː<f0:3.43,2.79,0.21><t:今日> wa<f0:1.76,-0.07,-0.66><t:は> ↘/");
   });
   it("is the full rule Yomite when every phrase is marked and nothing is devoiced", () => {
     const ys = "ja /kʲoꜜː<t:今日> wa<t:は> | aꜜme<t:雨> ↘/";
@@ -31,10 +31,10 @@ describe("realize with markedOnly", () => {
 describe("realize with jaScale", () => {
   it("multiplies the Japanese values", () => {
     const ys = "ja /kʲoꜜː<t:今日> wa<t:は> ↘/";
-    expect(realize(ys, { markedOnly: true, jaScale: 0.5 })).toBe("ja /kʲo<f0:1.79,2.19,2.44>ꜜː<f0:0.47,0,-0.67><t:今日> wa<f0:-2.24,-2.7,-2.82><t:は> ↘/");
+    expect(realize(ys, { markedOnly: true, jaScale: 0.5 })).toBe("ja /kʲo<f0:-0.47,-0.18,0>ꜜː<f0:1.71,1.39,0.1><t:今日> wa<f0:0.88,-0.03,-0.33><t:は> ↘/");
     expect(realize(ys, { jaScale: 1 })).toBe(realize(ys));
   });
   it("leaves values already written as they are", () => {
-    expect(realize("ja /kʲo<f0:3>ꜜː<t:今日> ↘/", { jaScale: 0.5 })).toBe("ja /kʲo<f0:3>ꜜː<f0:-0.52,-0.76,-0.88><t:今日> ↘/");
+    expect(realize("ja /kʲo<f0:3>ꜜː<t:今日> ↘/", { jaScale: 0.5 })).toBe("ja /kʲo<f0:3>ꜜː<f0:1.03,0.32,-0.23><t:今日> ↘/");
   });
 });

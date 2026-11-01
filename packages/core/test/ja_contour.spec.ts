@@ -1,4 +1,4 @@
-// Japanese pitch from the accent marks (D28): the shape the values must have, whatever the coefficients.
+// Japanese pitch from the accent marks (D28, D29): the shape the values must have, whatever the coefficients.
 import { describe, expect, it } from "vitest";
 import { jaContour } from "../src/ja_contour.ts";
 import { parse } from "../src/index.ts";

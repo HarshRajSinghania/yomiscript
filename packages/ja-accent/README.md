@@ -17,7 +17,7 @@ YomiScript (reading, <t:…>) ─► OpenJTalk's front end on its original text 
   do not change a mora are the same (`hi` / `çi`, `z` / `dz`, `kj` / `kʲ`, `v` / `b`); `writeMarks` lists each phrase
   read another way in `stats.misses`.
 - The marks are rendered by the rule Yomite at full strength (`ACCENT_SCALE`): three values per mora from the marks
-  of the whole sentence (D28, `jaContour` in `@yomiscript/core`). D25 had half and D27 three quarters of the earlier
+  of the whole sentence (D28, D29, `jaContour` in `@yomiscript/core`). D25 had half and D27 three quarters of the earlier
   phrase rule, whose values were heard as too strong above 1.
 - A YomiScript that is not Japanese, has no `<t:…>`, or carries its own `ꜛ ꜜ` or `<f0:…>` is left as it is
   (`needsAccent`).

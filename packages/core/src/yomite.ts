@@ -27,7 +27,7 @@ export function applyEdits(s: string, E: Edit[]): string {
   return s;
 }
 // Japanese: Tokyo-type pitch from ꜛ / ꜜ: three values per mora from the marks of the whole sentence (ja_contour.ts,
-// D28). Osaka (Keihan-type), per accent phrase: a phrase without ꜛ is high-onset, ꜛ marks where a low-onset phrase
+// D28, D29). Osaka (Keihan-type), per accent phrase: a phrase without ꜛ is high-onset, ꜛ marks where a low-onset phrase
 // rises; the high stretch is flatter and vowels are not devoiced
 const VLJ = ["k", "s", "ɕ", "t", "ʨ", "ʦ", "h", "ç", "ɸ", "p"];
 const voicelessStart = (m: Token | undefined): boolean => !!m && m.mk === "mora" && VLJ.some((x) => (m.ipa ?? "").startsWith(x));
