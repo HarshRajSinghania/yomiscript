@@ -19,3 +19,19 @@ export async function engine(model = "w16") {
   ort.env.wasm.numThreads = 1;
   return new K.Engine(ort, loadBytes).init({ suffix: MODELS[model] });
 }
+
+const gap = new Float32Array(K.SR * 0.2);
+
+/** the original Kokoro pipeline's audio for the original front end's YomiScript (eval/browser_tts refs.json): each chunk
+ * as the original gets it (D22), with Kokoro's own pitch, joined with a short silence; ps: the original's phonemes */
+export async function originalAudio(E, utterances, ps) {
+  const parts = [];
+  for (const [i, ys] of utterances.entries()) {
+    const P = K.plan(ys, { original: true });
+    if (P.length !== 1 || P[0].ps !== ps[i]) throw new Error(`not the original's phonemes: ${ys}`);
+    parts.push((await E.synthSection(P[0], "engine")).audio, gap);
+  }
+  const a = new Float32Array(parts.reduce((n, p) => n + p.length, 0));
+  parts.reduce((o, p) => (a.set(p, o), o + p.length), 0);
+  return a;
+}

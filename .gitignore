@@ -35,3 +35,6 @@ eval/browser_tts/trials/accent_marks/audio/
 eval/prosody_ref/audio/
 eval/prosody_ref/results/tool.json
 eval/prosody_ref/results/*.pkl
+
+# eval/tts_readings audio (speak.mjs)
+eval/tts_readings/audio/

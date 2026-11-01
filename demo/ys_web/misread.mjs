@@ -7,7 +7,7 @@ import fs from "fs";
 import path from "path";
 import { accentYomite } from "@yomiscript/ja-accent";
 import { nodeAnalyzer } from "@yomiscript/ja-accent/node";
-import { engine, K, WEB } from "./node.mjs";
+import { engine, K, originalAudio, WEB } from "./node.mjs";
 import { HERE as BT, SETS } from "../../eval/browser_tts/sets.mjs";
 
 const llm = process.argv[2] ?? "codex";
@@ -37,28 +37,13 @@ const NOTES = Object.fromEntries(
 const base = path.join(process.env.HOME, ".cache/yomiscript/ja-dict");
 const accent = accentYomite(await nodeAnalyzer({ dir: path.join(base, fs.readdirSync(base)[0]) }));
 const E = await engine("fp32");
-const gap = new Float32Array(K.SR * 0.2);
-
-async function original(utterances, ps) {
-  // the original pipeline's audio: each chunk as the original gets it, joined with a short silence
-  const parts = [];
-  for (const [i, ys] of utterances.entries()) {
-    const P = K.plan(ys, { original: true });
-    if (P.length !== 1 || P[0].ps !== ps[i]) throw new Error(`not the original's phonemes: ${ys}`);
-    parts.push((await E.synthSection(P[0], "engine")).audio, gap);
-  }
-  const a = new Float32Array(parts.reduce((n, p) => n + p.length, 0));
-  parts.reduce((o, p) => (a.set(p, o), o + p.length), 0);
-  return a;
-}
-
 const dir = path.join(WEB, "misread");
 fs.mkdirSync(dir, { recursive: true });
 const out = [];
 for (const [i, x] of SETS.hard.entries()) {
   if (origOk[i] || !llmOk[i] || !OUT[x.name]) continue;
   const ref = REFS.find((r) => r.name === x.name);
-  fs.writeFileSync(path.join(dir, `${x.name}.wav`), Buffer.from(K.wav(await original(ref.ys, ref.ps))));
+  fs.writeFileSync(path.join(dir, `${x.name}.wav`), Buffer.from(K.wav(await originalAudio(E, ref.ys, ref.ps))));
   out.push({ name: x.name, category: x.category, text: x.text, gold: x.gold, note: NOTES[x.name], ys: OUT[x.name], spoken: accent(OUT[x.name]) });
 }
 fs.writeFileSync(path.join(WEB, "misread.json"), JSON.stringify({ llm: read(`results/${llm}.hard.json`).model, items: out }, null, 1) + "\n");

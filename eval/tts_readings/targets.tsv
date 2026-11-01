@@ -1,0 +1,77 @@
+# The words of the hard set (eval/data/hard_set.tsv) whose reading is judged, with the readings that count as right
+# and the misreadings they are told apart from. Drafted 2026-11-01 from the hard set's notes and the misreadings the
+# systems produced (the original Kokoro front end, OpenJTalk, the commercial TTS); to be reviewed with the hard set.
+# A reading is katakana by pronunciation as in the hard set's gold, and the first right reading appears in the
+# sentence's first gold reading; "-" is the word left out (the original Kokoro drops Latin letters).
+# Sentences without a row here are not judged: every plausible reading of them counts as right (h005 今日, h034 紅葉,
+# h037 SIP, h038 NHK), or none of the systems tried misread them in a way a single word captures.
+# Columns: sentence<TAB>word<TAB>right readings (|)<TAB>misreadings (|)
+h001	市	イチ	シ
+h002	市役所	シヤクショ	イチヤクショ
+h003	八日	ヨーカ	ハチニチ|ヤッカ
+h003	朝市	アサイチ	アサシ
+h004	今日	キョー	コンニチ
+h006	一日	ツイタチ	イチニチ
+h006	三日	ミッカ	サンニチ
+h007	一日中	イチニチジュー	ツイタチジュー
+h008	上手	ジョーズ	ウワテ|カミテ
+h009	上手	カミテ	ジョーズ|ウワテ
+h010	上手	ウワテ	ジョーズ|カミテ
+h011	人気	ヒトケ	ニンキ
+h012	人気	ニンキ	ヒトケ
+h013	大家	オーヤ	タイカ|タイケ
+h014	大家	タイカ	オーヤ|タイケ
+h015	生物	セーブツ	ナマモノ
+h016	生物	ナマモノ	セーブツ
+h017	明日	アシタ|アス	ミョーニチ
+h018	一行	イッコー	イチギョー
+h019	一行	イチギョー	イッコー
+h020	辛い	カライ	ツライ
+h021	辛い	ツライ	カライ
+h022	目下	モッカ	メシタ
+h023	目下	メシタ	モッカ
+h024	角	カド	カク|ツノ
+h025	角	ツノ	カド|カク
+h026	寒気	サムケ	カンキ
+h027	寒気	カンキ	サムケ
+h028	何	ナニ	ナン
+h029	何本	ナンボン	ナニホン|ナンポン
+h030	色紙	シキシ	イロガミ
+h031	色紙	イロガミ	シキシ
+h032	上手く	ウマク	ジョーズク
+h033	仮病	ケビョー	カビョー
+h035	下手	ヘタ	シタテ|シモテ
+h036	SAP	エスエーピー	サップ|-
+h039	AI	エーアイ	-
+h040	USB	ユーエスビー	-
+h041	NASA	ナサ	エヌエーエスエー|-
+h042	JR	ジェーアール	-
+h043	GPU	ジーピーユー	-
+h044	API	エーピーアイ	-
+h045	IoT	アイオーティー	-
+h046	SNS	エスエヌエス	-
+h047	UNESCO	ユネスコ	-
+h051	6本	ロッポン	ロクホン|ロクポン
+h052	3匹	サンビキ	サンピキ|サンヒキ
+h053	25.5度	ニジューゴテンゴド	ニジューゴゴド
+h054	8分	ハップン|ハチフン	ハチプン
+h055	10本	ジュッポン|ジッポン	ジューホン|ジューポン
+h056	2人	フタリ	ニニン
+h057	1人	ヒトリ	イチニン
+h059	300グラム	サンビャクグラム	サンヒャクグラム
+h060	4月	シガツ	ヨンガツ
+h060	1日	ツイタチ	イチニチ
+h061	24日	ニジューヨッカ	ニジューヨンニチ|ニジューヨンカ
+h062	20日	ハツカ	ニジューニチ
+h063	5日	イツカ	ゴニチ
+h064	7月	シチガツ	ナナガツ
+h064	7日	ナノカ	ナナカ|ナナニチ
+h065	9時	クジ	キュージ
+h065	30分	サンジュップン|サンジップン	サンジューフン|サンジューブン
+h066	3月	サンガツ	サンツキ
+h066	3日	ミッカ	サンニチ|サンヒ
+h067	14日	ジューヨッカ	ジューヨンニチ|ジューヨンカ
+h068	20日	ハツカ	ニジューニチ
+h069	4月	シガツ	ヨンガツ
+h069	30日	サンジューニチ	ミソカ
+h070	8日	ヨーカ	ハチニチ

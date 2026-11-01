@@ -34,13 +34,9 @@ describe("Japanese pauses and inner sentence ends, as in English (D26)", () => {
 describe("a moraic ɴ before a mora without an onset, spoken longer (D30)", () => {
   const ys = "ja /ɡoseɴeɴaɾeba ‖ hoɴ o ↘/";
   it("lengthens the ɴ and the vowel after it", () => {
-    const S = plan(ys)[0];
-    expect(S.toks.map((t, k) => (S.lengthen[k] === 1 ? "" : `${t.mk === "N" ? "ɴ" : t.v}${S.lengthen[k]}`)).filter(Boolean)).toEqual([
-      "ɴ1.5",
-      "e1.25",
-      "ɴ1.5",
-      "a1.25",
-    ]);
+    const S = plan(ys)[0],
+      name = (t) => (t.mk === "N" ? "ɴ" : t.v);
+    expect(S.toks.map((t, k) => S.lengthen[k] !== 1 && `${name(t)}${S.lengthen[k]}`).filter(Boolean)).toEqual(["ɴ1.5", "e1.25", "ɴ1.5", "a1.25"]);
   });
   it("leaves the durations as predicted with original, and outside Japanese", () => {
     expect(plan(ys, { original: true })[0].lengthen.every((x) => x === 1)).toBe(true);

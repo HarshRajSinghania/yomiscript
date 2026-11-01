@@ -1,0 +1,2 @@
+-r ../prosody_ref/requirements.txt
+transformers==5.22.1
