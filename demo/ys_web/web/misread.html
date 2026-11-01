@@ -50,7 +50,17 @@
       h1 {
         font-size: 28px;
         line-height: 1.4;
+        margin: 0 0 8px;
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 20px;
+        font-size: 14px;
         margin: 0 0 24px;
+      }
+      a {
+        color: var(--accent);
       }
       .intro p {
         margin: 0 0 14px;
@@ -210,6 +220,11 @@
   <body>
     <main>
       <h1>YomiScript：読み間違えない TTS を、ブラウザーで</h1>
+      <nav class="links">
+        <a href="https://github.com/receptron/yomiscript">GitHub（仕様とコード）</a>
+        <a href="https://huggingface.co/receptron/yomiscript-kokoro">Hugging Face（Kokoro のモデル）</a>
+        <a href="https://huggingface.co/receptron/yomiscript-ja-dict">Hugging Face（アクセント辞書）</a>
+      </nav>
       <div class="intro">
         <p>
           Kokoro などのオープンソース TTS

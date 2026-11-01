@@ -5,7 +5,11 @@ engine speaks exactly that. The notation between the two is **YomiScript**, a la
 and prosody (IPA with prosody marks). It is offered as a replacement for the OpenAI and Gemini speech APIs, above all
 for Japanese, where one written form often has several readings (一日: ついたち or いちにち, 上手: じょうず or うわて).
 
-Status: early. The YomiScript spec is a v0.2 draft, and the packages are not yet on npm.
+Status: early. The YomiScript spec is a v0.2 draft; the packages are on npm (`@yomiscript/*`, the CLI as `yomiscript`).
+
+**Hear it:** [yomiscript.pages.dev](https://yomiscript.pages.dev/) has the sentences the original Kokoro misreads, each
+as the original speaks it and as Kokoro speaks the LLM's YomiScript, generated in your browser
+([`demo/ys_web/web/misread.html`](demo/ys_web/web/misread.html)).
 
 ## How it works
 
