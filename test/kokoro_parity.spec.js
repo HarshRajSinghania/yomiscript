@@ -17,6 +17,7 @@ describe("YomiScript -> Kokoro input, as the original Kokoro gets it", () => {
     expect(P).toHaveLength(1);
     expect(P[0].ps).toBe(c.ps);
     expect(P[0].ids).toEqual(c.ids);
+    expect(P[0].lengthen.every((x) => x === 1)).toBe(true); // the predicted durations as they are (D30)
   });
 });
 
@@ -27,6 +28,23 @@ describe("Japanese pauses and inner sentence ends, as in English (D26)", () => {
   });
   it("leaves only the word space with original", () => {
     expect(plan(ys, { original: true })[0].ps).toBe("kʲoː βa haɾete imasɨ asɨ βa ame? soː desɨ");
+  });
+});
+
+describe("a moraic ɴ before a mora without an onset, spoken longer (D30)", () => {
+  const ys = "ja /ɡoseɴeɴaɾeba ‖ hoɴ o ↘/";
+  it("lengthens the ɴ and the vowel after it", () => {
+    const S = plan(ys)[0];
+    expect(S.toks.map((t, k) => (S.lengthen[k] === 1 ? "" : `${t.mk === "N" ? "ɴ" : t.v}${S.lengthen[k]}`)).filter(Boolean)).toEqual([
+      "ɴ1.5",
+      "e1.25",
+      "ɴ1.5",
+      "a1.25",
+    ]);
+  });
+  it("leaves the durations as predicted with original, and outside Japanese", () => {
+    expect(plan(ys, { original: true })[0].lengthen.every((x) => x === 1)).toBe(true);
+    expect(plan("en-US /ˈhɛ.loʊ ↘/")[0].lengthen.every((x) => x === 1)).toBe(true);
   });
 });
 

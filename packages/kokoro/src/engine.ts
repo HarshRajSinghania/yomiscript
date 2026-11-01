@@ -78,7 +78,7 @@ export class Engine {
     const k = (sec.ps ?? "x".repeat(L - 1)).length - 1; // voice-pack entry as in KPipeline: pack[len(ps)-1]
     const ref = new T("float32", V.slice(k * 256, (k + 1) * 256), [1, 256]);
     const r1 = await this.enc.run({ ids: new T("int64", BigInt64Array.from(sec.ids.map(BigInt)), [1, L]), ref });
-    const dur = Array.from(r1.dur.data as ArrayLike<number | bigint>, Number);
+    const dur = Array.from(r1.dur.data as ArrayLike<number | bigint>, Number).map((d, i) => Math.round(d * (sec.lengthen[sec.uid[i]] ?? 1)));
     const Tn = dur.reduce((a, b) => a + b, 0);
     const expand = (t: Tensor): Tensor => {
       const C = t.dims[1],

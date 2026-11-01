@@ -196,12 +196,29 @@ export interface PlannedSection {
   uid: number[];
   U: PlanUnit[];
   toks: Token[];
+  /** how much longer each unit is spoken than Kokoro predicts (1: as predicted; D30) */
+  lengthen: number[];
 }
 export type Plan = PlannedSection[] & { src: string };
 
 export interface PlanOptions {
   /** Japanese punctuation as the original Kokoro gets it (D22), for the parity checks */
   original?: boolean;
+}
+/** a moraic ɴ before a mora without an onset (千円あれば, 原因, 恋愛), and that vowel: Kokoro runs them together */
+const N_BEFORE_VOWEL = 1.5,
+  VOWEL_AFTER_N = 1.25;
+function lengthening(toks: Token[], ja: boolean): number[] {
+  // per unit (D30); none outside Japanese or for the original
+  const out = toks.map(() => 1);
+  if (!ja) return out;
+  toks.forEach((t, k) => {
+    const n = toks[k + 1];
+    if (t.kind !== "unit" || t.mk !== "N" || n?.kind !== "unit" || n.mk !== "mora" || n.on) return;
+    out[k] = N_BEFORE_VOWEL;
+    out[k + 1] = VOWEL_AFTER_N;
+  });
+  return out;
 }
 // plan: sections with Kokoro ids + units (no ONNX); used for parity tests and synthesis
 export function plan(ys: string, opts: PlanOptions = {}): Plan {
@@ -227,7 +244,8 @@ export function plan(ys: string, opts: PlanOptions = {}): Plan {
     ids.push(0);
     uid.push(-1);
     const ps = U.map((u) => u[0]).join("");
-    return { lang: sec.lang, text: sec.text, voice: voiceFor(Y.top, sec.lang, sec.text), ps, ids, uid, U, toks };
+    const lengthen = lengthening(toks, isJa(sec.lang) && !opts.original);
+    return { lang: sec.lang, text: sec.text, voice: voiceFor(Y.top, sec.lang, sec.text), ps, ids, uid, U, toks, lengthen };
   });
   return Object.assign(P, { src: Y.ys });
 }
