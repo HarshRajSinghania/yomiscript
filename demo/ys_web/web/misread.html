@@ -285,7 +285,7 @@
       $("about").textContent =
         `下の${data.items.length}文は、難しい文70文（同形異音語、略語、数字、日付）のうち、オリジナルの Kokoro が読み間違える文です。` +
         `「オリジナル」は Kokoro 自身の読みを事前に録音した音声、「YomiScript」は LLM（${data.llm}）が書いた YomiScript から、` +
-        `このブラウザーの中でいま生成する音声です（モデルは fp16 の重み、約160 MB）。アクセントは辞書（@yomiscript/ja-accent）で事前に付けています。`;
+        `このブラウザーの中でいま生成する音声です（モデルは fp16 の重み、約160 MB）。`;
 
       // the shared player: one sound at a time
       const player = new Audio();
